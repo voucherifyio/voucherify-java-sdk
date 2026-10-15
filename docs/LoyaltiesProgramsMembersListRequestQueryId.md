@@ -2,7 +2,7 @@
 
 # LoyaltiesProgramsMembersListRequestQueryId
 
-ID filter conditions for member IDs. At least one condition is required.
+ID conditions. Format `lmbr_[a-f0-9]+`. At least one condition is required.
 
 ## Properties
 

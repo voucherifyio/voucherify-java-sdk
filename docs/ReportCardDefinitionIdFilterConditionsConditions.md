@@ -1,6 +1,6 @@
 
 
-# SpendingReportFilterCardDefinitionIdConditionsConditions
+# ReportCardDefinitionIdFilterConditionsConditions
 
 
 ## Properties

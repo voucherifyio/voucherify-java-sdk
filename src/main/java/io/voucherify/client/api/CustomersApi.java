@@ -1026,11 +1026,12 @@ public class CustomersApi {
      * @param updatedAtAfter Filter customers by date customer was updated last time. (optional)
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)
+     * @param filters Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call listCustomersCall(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCustomersCall(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, Object filters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1103,6 +1104,10 @@ public class CustomersApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after", startingAfter));
         }
 
+        if (filters != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filters", filters));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1123,8 +1128,8 @@ public class CustomersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCustomersValidateBeforeCall(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, final ApiCallback _callback) throws ApiException {
-        return listCustomersCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, _callback);
+    private okhttp3.Call listCustomersValidateBeforeCall(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, Object filters, final ApiCallback _callback) throws ApiException {
+        return listCustomersCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters, _callback);
 
     }
 
@@ -1143,11 +1148,12 @@ public class CustomersApi {
      * @param updatedAtAfter Filter customers by date customer was updated last time. (optional)
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)
+     * @param filters Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)
      * @return CustomersListResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CustomersListResponseBody listCustomers(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter) throws ApiException {
-        ApiResponse<CustomersListResponseBody> localVarResp = listCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter);
+    public CustomersListResponseBody listCustomers(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, Object filters) throws ApiException {
+        ApiResponse<CustomersListResponseBody> localVarResp = listCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters);
         return localVarResp.getData();
     }
 
@@ -1166,11 +1172,12 @@ public class CustomersApi {
      * @param updatedAtAfter Filter customers by date customer was updated last time. (optional)
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)
+     * @param filters Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)
      * @return ApiResponse&lt;CustomersListResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CustomersListResponseBody> listCustomersWithHttpInfo(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter) throws ApiException {
-        okhttp3.Call localVarCall = listCustomersValidateBeforeCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, null);
+    public ApiResponse<CustomersListResponseBody> listCustomersWithHttpInfo(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, Object filters) throws ApiException {
+        okhttp3.Call localVarCall = listCustomersValidateBeforeCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters, null);
         Type localVarReturnType = new TypeToken<CustomersListResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1190,13 +1197,14 @@ public class CustomersApi {
      * @param updatedAtAfter Filter customers by date customer was updated last time. (optional)
      * @param order This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
      * @param startingAfter A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)
+     * @param filters Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call listCustomersAsync(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, final ApiCallback<CustomersListResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listCustomersAsync(Integer limit, Integer page, String email, String city, String name, String segmentId, OffsetDateTime createdAtBefore, OffsetDateTime createdAtAfter, OffsetDateTime updatedAtBefore, OffsetDateTime updatedAtAfter, ParameterOrderListCustomers order, OffsetDateTime startingAfter, Object filters, final ApiCallback<CustomersListResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCustomersValidateBeforeCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, _callback);
+        okhttp3.Call localVarCall = listCustomersValidateBeforeCall(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters, _callback);
         Type localVarReturnType = new TypeToken<CustomersListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

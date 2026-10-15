@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * ID filter conditions for card transaction IDs. At least one condition is required.
+ * ID conditions. Format &#x60;lctx_[a-f0-9]+&#x60;. At least one condition is required.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

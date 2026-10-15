@@ -78,26 +78,6 @@ public class CardPointsBucket {
   private String memberId;
     private boolean memberIdIsSet = false;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-    private boolean createdAtIsSet = false;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-    private boolean updatedAtIsSet = false;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-    private boolean idIsSet = false;
-
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-    private boolean customerIdIsSet = false;
-
   /**
    * Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
    */
@@ -147,6 +127,26 @@ public class CardPointsBucket {
   @SerializedName(SERIALIZED_NAME_CARD_TYPE)
   private CardTypeEnum cardType = CardTypeEnum.INDIVIDUAL;
     private boolean cardTypeIsSet = false;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+    private boolean idIsSet = false;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
+    private boolean customerIdIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
@@ -425,6 +425,32 @@ public class CardPointsBucket {
   }
 
 
+  public CardPointsBucket cardType(CardTypeEnum cardType) {
+    
+    this.cardType = cardType;
+    this.cardTypeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
+   * @return cardType
+  **/
+  @javax.annotation.Nullable
+  public CardTypeEnum getCardType() {
+    return cardType;
+  }
+
+
+  public void setCardType(CardTypeEnum cardType) {
+    this.cardType = cardType;
+    this.cardTypeIsSet = true;
+  }
+  public boolean isCardTypeSet() {
+    return cardTypeIsSet;
+  }
+
+
   public CardPointsBucket createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -526,32 +552,6 @@ public class CardPointsBucket {
   }
   public boolean isCustomerIdSet() {
     return customerIdIsSet;
-  }
-
-
-  public CardPointsBucket cardType(CardTypeEnum cardType) {
-    
-    this.cardType = cardType;
-    this.cardTypeIsSet = true;
-    return this;
-  }
-
-   /**
-   * Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
-   * @return cardType
-  **/
-  @javax.annotation.Nullable
-  public CardTypeEnum getCardType() {
-    return cardType;
-  }
-
-
-  public void setCardType(CardTypeEnum cardType) {
-    this.cardType = cardType;
-    this.cardTypeIsSet = true;
-  }
-  public boolean isCardTypeSet() {
-    return cardTypeIsSet;
   }
 
 
@@ -699,11 +699,11 @@ public class CardPointsBucket {
         Objects.equals(this.cardDefinitionId, cardPointsBucket.cardDefinitionId) &&
         Objects.equals(this.programId, cardPointsBucket.programId) &&
         Objects.equals(this.memberId, cardPointsBucket.memberId) &&
+        Objects.equals(this.cardType, cardPointsBucket.cardType) &&
         Objects.equals(this.createdAt, cardPointsBucket.createdAt) &&
         Objects.equals(this.updatedAt, cardPointsBucket.updatedAt) &&
         Objects.equals(this.id, cardPointsBucket.id) &&
         Objects.equals(this.customerId, cardPointsBucket.customerId) &&
-        Objects.equals(this.cardType, cardPointsBucket.cardType) &&
         Objects.equals(this.points, cardPointsBucket.points) &&
         Objects.equals(this.expirationDate, cardPointsBucket.expirationDate) &&
         Objects.equals(this.expirationType, cardPointsBucket.expirationType) &&
@@ -717,7 +717,7 @@ public class CardPointsBucket {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardId, cardDefinitionId, programId, memberId, createdAt, updatedAt, id, customerId, cardType, points, expirationDate, expirationType, status, _object);
+    return Objects.hash(cardId, cardDefinitionId, programId, memberId, cardType, createdAt, updatedAt, id, customerId, points, expirationDate, expirationType, status, _object);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -735,11 +735,11 @@ public class CardPointsBucket {
     sb.append("    cardDefinitionId: ").append(toIndentedString(cardDefinitionId)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    memberId: ").append(toIndentedString(memberId)).append("\n");
+    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    expirationType: ").append(toIndentedString(expirationType)).append("\n");
@@ -771,11 +771,11 @@ public class CardPointsBucket {
     openapiFields.add("card_definition_id");
     openapiFields.add("program_id");
     openapiFields.add("member_id");
+    openapiFields.add("card_type");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("id");
     openapiFields.add("customer_id");
-    openapiFields.add("card_type");
     openapiFields.add("points");
     openapiFields.add("expiration_date");
     openapiFields.add("expiration_type");

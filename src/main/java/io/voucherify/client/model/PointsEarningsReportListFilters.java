@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.EarningRuleIdFilterConditions;
-import io.voucherify.client.model.PointsEarningsReportFilterCardDefinitionIdConditions;
+import io.voucherify.client.model.ReportCardDefinitionIdFilterConditions;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -58,7 +58,7 @@ import io.voucherify.client.JSON;
 
 public class PointsEarningsReportListFilters {
   /**
-   * Combines the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    */
   @JsonAdapter(JunctionEnum.Adapter.class)
   public enum JunctionEnum {
@@ -115,7 +115,7 @@ public class PointsEarningsReportListFilters {
 
   public static final String SERIALIZED_NAME_CARD_DEFINITION_ID = "card_definition_id";
   @SerializedName(SERIALIZED_NAME_CARD_DEFINITION_ID)
-  private PointsEarningsReportFilterCardDefinitionIdConditions cardDefinitionId;
+  private ReportCardDefinitionIdFilterConditions cardDefinitionId;
 
   public PointsEarningsReportListFilters() {
   }
@@ -128,7 +128,7 @@ public class PointsEarningsReportListFilters {
   }
 
    /**
-   * Combines the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    * @return junction
   **/
   @javax.annotation.Nullable
@@ -168,7 +168,7 @@ public class PointsEarningsReportListFilters {
   }
 
 
-  public PointsEarningsReportListFilters cardDefinitionId(PointsEarningsReportFilterCardDefinitionIdConditions cardDefinitionId) {
+  public PointsEarningsReportListFilters cardDefinitionId(ReportCardDefinitionIdFilterConditions cardDefinitionId) {
     
     this.cardDefinitionId = cardDefinitionId;
     
@@ -180,12 +180,12 @@ public class PointsEarningsReportListFilters {
    * @return cardDefinitionId
   **/
   @javax.annotation.Nullable
-  public PointsEarningsReportFilterCardDefinitionIdConditions getCardDefinitionId() {
+  public ReportCardDefinitionIdFilterConditions getCardDefinitionId() {
     return cardDefinitionId;
   }
 
 
-  public void setCardDefinitionId(PointsEarningsReportFilterCardDefinitionIdConditions cardDefinitionId) {
+  public void setCardDefinitionId(ReportCardDefinitionIdFilterConditions cardDefinitionId) {
     this.cardDefinitionId = cardDefinitionId;
   }
 

@@ -246,6 +246,8 @@ Authorization schemes defined for the API.
 ADDED:
 - Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under `/v2/loyalties`.
 - `loyalty_memberships` on customer summary models.
+- Optional `filters` query parameter on list customers.
+- Customer loyalty membership responses list only `ACTIVE` memberships. The status enum still includes `INACTIVE` and `DELETED`.
 - **2026-08-26** - `17.0.5`
 FIXED:
 - `exchange_ratio` on COIN reward models is `BigDecimal` (create/update request models were `String`, redemption result was `Integer`). `getExchangeRatio()` and `setExchangeRatio()` changed with that type, so update call sites. The API returns fractional values such as `0.01`.
@@ -2172,8 +2174,6 @@ Class | Method | HTTP request | Description
 - [ParameterVoucherTypeListPublications](docs/ParameterVoucherTypeListPublications.md)
 - [ParametersFiltersListCampaignTransactions](docs/ParametersFiltersListCampaignTransactions.md)
 - [PointsEarningsReportDailyEntry](docs/PointsEarningsReportDailyEntry.md)
-- [PointsEarningsReportFilterCardDefinitionIdConditions](docs/PointsEarningsReportFilterCardDefinitionIdConditions.md)
-- [PointsEarningsReportFilterCardDefinitionIdConditionsConditions](docs/PointsEarningsReportFilterCardDefinitionIdConditionsConditions.md)
 - [PointsEarningsReportListFilters](docs/PointsEarningsReportListFilters.md)
 - [PointsEarningsReportSummaryEntry](docs/PointsEarningsReportSummaryEntry.md)
 - [PointsExpirationTypes](docs/PointsExpirationTypes.md)
@@ -2443,6 +2443,8 @@ Class | Method | HTTP request | Description
 - [Referrer](docs/Referrer.md)
 - [ReferrerAddress](docs/ReferrerAddress.md)
 - [ReferrerId](docs/ReferrerId.md)
+- [ReportCardDefinitionIdFilterConditions](docs/ReportCardDefinitionIdFilterConditions.md)
+- [ReportCardDefinitionIdFilterConditionsConditions](docs/ReportCardDefinitionIdFilterConditionsConditions.md)
 - [ResourceTypes](docs/ResourceTypes.md)
 - [Reward](docs/Reward.md)
 - [RewardAssignment](docs/RewardAssignment.md)
@@ -2547,8 +2549,6 @@ Class | Method | HTTP request | Description
 - [SkusImportCsvCreateResponseBody](docs/SkusImportCsvCreateResponseBody.md)
 - [SkusListForProduct](docs/SkusListForProduct.md)
 - [SpendingReportDailyEntry](docs/SpendingReportDailyEntry.md)
-- [SpendingReportFilterCardDefinitionIdConditions](docs/SpendingReportFilterCardDefinitionIdConditions.md)
-- [SpendingReportFilterCardDefinitionIdConditionsConditions](docs/SpendingReportFilterCardDefinitionIdConditionsConditions.md)
 - [SpendingReportListFilters](docs/SpendingReportListFilters.md)
 - [SpendingReportSummaryEntry](docs/SpendingReportSummaryEntry.md)
 - [StackingRules](docs/StackingRules.md)

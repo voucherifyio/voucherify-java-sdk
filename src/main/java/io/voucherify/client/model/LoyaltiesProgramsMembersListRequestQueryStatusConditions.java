@@ -56,7 +56,7 @@ import io.voucherify.client.JSON;
 
 public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
   /**
-   * Value equals. Single value or an array with exactly one value.
+   * Matches one value. A string or a one-element array.
    */
   @JsonAdapter(IsEnum.Adapter.class)
   public enum IsEnum {
@@ -108,7 +108,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
     private boolean $isIsSet = false;
 
   /**
-   * Value does not equal. Single value or an array with exactly one value.
+   * Excludes one value. A string or a one-element array.
    */
   @JsonAdapter(IsNotEnum.Adapter.class)
   public enum IsNotEnum {
@@ -160,7 +160,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
     private boolean $isNotIsSet = false;
 
   /**
-   * Value is one of. Single value or an array of 1-10 values.
+   * Matches any of the values. A string or an array of 1 to 10 values.
    */
   @JsonAdapter(InEnum.Adapter.class)
   public enum InEnum {
@@ -212,7 +212,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
     private boolean $inIsSet = false;
 
   /**
-   * Value is not one of. Single value or an array of 1-10 values.
+   * Excludes any of the values. A string or an array of 1 to 10 values.
    */
   @JsonAdapter(NotInEnum.Adapter.class)
   public enum NotInEnum {
@@ -274,7 +274,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
   }
 
    /**
-   * Value equals. Single value or an array with exactly one value.
+   * Matches one value. A string or a one-element array.
    * @return $is
   **/
   @javax.annotation.Nullable
@@ -300,7 +300,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
   }
 
    /**
-   * Value does not equal. Single value or an array with exactly one value.
+   * Excludes one value. A string or a one-element array.
    * @return $isNot
   **/
   @javax.annotation.Nullable
@@ -326,7 +326,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
   }
 
    /**
-   * Value is one of. Single value or an array of 1-10 values.
+   * Matches any of the values. A string or an array of 1 to 10 values.
    * @return $in
   **/
   @javax.annotation.Nullable
@@ -352,7 +352,7 @@ public class LoyaltiesProgramsMembersListRequestQueryStatusConditions {
   }
 
    /**
-   * Value is not one of. Single value or an array of 1-10 values.
+   * Excludes any of the values. A string or an array of 1 to 10 values.
    * @return $notIn
   **/
   @javax.annotation.Nullable

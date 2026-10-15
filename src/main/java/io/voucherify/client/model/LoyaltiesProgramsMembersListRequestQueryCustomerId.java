@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * ID filter conditions for customer IDs. At least one condition is required.
+ * ID conditions. Format &#x60;cust_[a-zA-Z0-9]+&#x60;. At least one condition is required.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

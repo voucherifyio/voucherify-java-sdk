@@ -74,7 +74,7 @@ public class Lv2EarningRulesApi {
 
     /**
      * Build call for getEarningRule
-     * @param earningRuleId Earning rule ID. (required)
+     * @param earningRuleId Identifies the earning rule. Format lern_[a-f0-9]+. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -138,7 +138,7 @@ public class Lv2EarningRulesApi {
     /**
      * Get earning rule
      * Returns a single earning rule by its ID.
-     * @param earningRuleId Earning rule ID. (required)
+     * @param earningRuleId Identifies the earning rule. Format lern_[a-f0-9]+. (required)
      * @return V2LoyaltiesEarningRulesGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -150,7 +150,7 @@ public class Lv2EarningRulesApi {
     /**
      * Get earning rule
      * Returns a single earning rule by its ID.
-     * @param earningRuleId Earning rule ID. (required)
+     * @param earningRuleId Identifies the earning rule. Format lern_[a-f0-9]+. (required)
      * @return ApiResponse&lt;V2LoyaltiesEarningRulesGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -163,7 +163,7 @@ public class Lv2EarningRulesApi {
     /**
      * Get earning rule (asynchronously)
      * Returns a single earning rule by its ID.
-     * @param earningRuleId Earning rule ID. (required)
+     * @param earningRuleId Identifies the earning rule. Format lern_[a-f0-9]+. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

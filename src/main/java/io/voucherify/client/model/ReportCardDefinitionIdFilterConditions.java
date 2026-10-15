@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.PointsEarningsReportFilterCardDefinitionIdConditionsConditions;
+import io.voucherify.client.model.ReportCardDefinitionIdFilterConditionsConditions;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -51,20 +51,20 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * ID filter conditions for card definition ID. Values must match pattern &#x60;^lcdef_[a-f0-9]+$&#x60;. &#x60;$is&#x60;/&#x60;$is_not&#x60; accept a single value (string or 1-element array); &#x60;$in&#x60;/&#x60;$not_in&#x60; accept a string or an array of 1-100 values.
+ * ID filter conditions for card definition IDs. Values must match pattern &#x60;^lcdef_[a-f0-9]+$&#x60;. &#x60;$is&#x60;/&#x60;$is_not&#x60; accept a single value (string or 1-element array); &#x60;$in&#x60;/&#x60;$not_in&#x60; accept a string or an array of 1-100 values.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class PointsEarningsReportFilterCardDefinitionIdConditions {
+public class ReportCardDefinitionIdFilterConditions {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private PointsEarningsReportFilterCardDefinitionIdConditionsConditions conditions;
+  private ReportCardDefinitionIdFilterConditionsConditions conditions;
     private boolean conditionsIsSet = false;
 
-  public PointsEarningsReportFilterCardDefinitionIdConditions() {
+  public ReportCardDefinitionIdFilterConditions() {
   }
 
-  public PointsEarningsReportFilterCardDefinitionIdConditions conditions(PointsEarningsReportFilterCardDefinitionIdConditionsConditions conditions) {
+  public ReportCardDefinitionIdFilterConditions conditions(ReportCardDefinitionIdFilterConditionsConditions conditions) {
     
     this.conditions = conditions;
     this.conditionsIsSet = true;
@@ -76,12 +76,12 @@ public class PointsEarningsReportFilterCardDefinitionIdConditions {
    * @return conditions
   **/
   @javax.annotation.Nullable
-  public PointsEarningsReportFilterCardDefinitionIdConditionsConditions getConditions() {
+  public ReportCardDefinitionIdFilterConditionsConditions getConditions() {
     return conditions;
   }
 
 
-  public void setConditions(PointsEarningsReportFilterCardDefinitionIdConditionsConditions conditions) {
+  public void setConditions(ReportCardDefinitionIdFilterConditionsConditions conditions) {
     this.conditions = conditions;
     this.conditionsIsSet = true;
   }
@@ -99,8 +99,8 @@ public class PointsEarningsReportFilterCardDefinitionIdConditions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PointsEarningsReportFilterCardDefinitionIdConditions pointsEarningsReportFilterCardDefinitionIdConditions = (PointsEarningsReportFilterCardDefinitionIdConditions) o;
-    return Objects.equals(this.conditions, pointsEarningsReportFilterCardDefinitionIdConditions.conditions);
+    ReportCardDefinitionIdFilterConditions reportCardDefinitionIdFilterConditions = (ReportCardDefinitionIdFilterConditions) o;
+    return Objects.equals(this.conditions, reportCardDefinitionIdFilterConditions.conditions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -122,7 +122,7 @@ public class PointsEarningsReportFilterCardDefinitionIdConditions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PointsEarningsReportFilterCardDefinitionIdConditions {\n");
+    sb.append("class ReportCardDefinitionIdFilterConditions {\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -156,27 +156,27 @@ public class PointsEarningsReportFilterCardDefinitionIdConditions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PointsEarningsReportFilterCardDefinitionIdConditions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PointsEarningsReportFilterCardDefinitionIdConditions' and its subtypes
+       if (!ReportCardDefinitionIdFilterConditions.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ReportCardDefinitionIdFilterConditions' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PointsEarningsReportFilterCardDefinitionIdConditions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PointsEarningsReportFilterCardDefinitionIdConditions.class));
+       final TypeAdapter<ReportCardDefinitionIdFilterConditions> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ReportCardDefinitionIdFilterConditions.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PointsEarningsReportFilterCardDefinitionIdConditions>() {
+       return (TypeAdapter<T>) new TypeAdapter<ReportCardDefinitionIdFilterConditions>() {
            @Override
-           public void write(JsonWriter out, PointsEarningsReportFilterCardDefinitionIdConditions value) throws IOException {
+           public void write(JsonWriter out, ReportCardDefinitionIdFilterConditions value) throws IOException {
             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
 
             // 1. Strip all nulls and internal "isSet" markers
             obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
 
             // 2. Add back explicitly set nulls using reflection
-            for (Field field : PointsEarningsReportFilterCardDefinitionIdConditions.class.getDeclaredFields()) {
+            for (Field field : ReportCardDefinitionIdFilterConditions.class.getDeclaredFields()) {
               String fieldName = field.getName();
               if (fieldName.endsWith("IsSet")) continue;
               try {
-                Field isSetField = PointsEarningsReportFilterCardDefinitionIdConditions.class.getDeclaredField(fieldName + "IsSet");
+                Field isSetField = ReportCardDefinitionIdFilterConditions.class.getDeclaredField(fieldName + "IsSet");
                 isSetField.setAccessible(true);
                 boolean isSet = (boolean) isSetField.get(value);
 
@@ -199,7 +199,7 @@ public class PointsEarningsReportFilterCardDefinitionIdConditions {
            }
 
            @Override
-           public PointsEarningsReportFilterCardDefinitionIdConditions read(JsonReader in) throws IOException {
+           public ReportCardDefinitionIdFilterConditions read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -209,18 +209,18 @@ public class PointsEarningsReportFilterCardDefinitionIdConditions {
   }
 
  /**
-  * Create an instance of PointsEarningsReportFilterCardDefinitionIdConditions given an JSON string
+  * Create an instance of ReportCardDefinitionIdFilterConditions given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PointsEarningsReportFilterCardDefinitionIdConditions
-  * @throws IOException if the JSON string is invalid with respect to PointsEarningsReportFilterCardDefinitionIdConditions
+  * @return An instance of ReportCardDefinitionIdFilterConditions
+  * @throws IOException if the JSON string is invalid with respect to ReportCardDefinitionIdFilterConditions
   */
-  public static PointsEarningsReportFilterCardDefinitionIdConditions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PointsEarningsReportFilterCardDefinitionIdConditions.class);
+  public static ReportCardDefinitionIdFilterConditions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ReportCardDefinitionIdFilterConditions.class);
   }
 
  /**
-  * Convert an instance of PointsEarningsReportFilterCardDefinitionIdConditions to an JSON string
+  * Convert an instance of ReportCardDefinitionIdFilterConditions to an JSON string
   *
   * @return JSON string
   */

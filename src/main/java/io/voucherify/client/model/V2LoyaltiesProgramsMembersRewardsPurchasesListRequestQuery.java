@@ -60,7 +60,7 @@ import io.voucherify.client.JSON;
 
 public class V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery {
   /**
-   * Logical junction between the field filters. Defaults to AND behavior.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    */
   @JsonAdapter(JunctionEnum.Adapter.class)
   public enum JunctionEnum {
@@ -138,7 +138,7 @@ public class V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery {
   }
 
    /**
-   * Logical junction between the field filters. Defaults to AND behavior.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    * @return junction
   **/
   @javax.annotation.Nullable

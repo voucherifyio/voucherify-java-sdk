@@ -19971,6 +19971,16 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterDate'
         style: form
+      - description: "Filters customers by field conditions. Read [Advanced filters\
+          \ for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources)\
+          \ for examples."
+        explode: true
+        in: query
+        name: filters
+        required: false
+        schema:
+          type: object
+        style: deepObject
       responses:
         "200":
           content:
@@ -31288,7 +31298,7 @@ paths:
         program.
       operationId: listProgramEarningRuleAssignments
       parameters:
-      - description: Unique program identifier.
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31297,8 +31307,8 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. Between 1 and 100. Defaults
-          to 10.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -31310,9 +31320,10 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Sorting order. A single value or an array of values. Prefix with
-          - for descending. Defaults to -created_at. The same field cannot be used
-          in both ascending and descending order at once.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -created_at. The same field cannot
+          be used in both directions. Rows with the same sort value are then ordered
+          by id ascending.
         explode: true
         in: query
         name: order
@@ -31324,7 +31335,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Pagination cursor returned by a previous call (cursor.next).
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -31371,7 +31384,7 @@ paths:
         \ the program. Currently, a program can have only one tier structure assigned."
       operationId: listProgramTierStructureAssignments
       parameters:
-      - description: Unique program identifier.
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31380,8 +31393,8 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. Between 1 and 100. Defaults
-          to 10. Non-integer values are rounded.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -31393,9 +31406,10 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Sorting order. A single value or an array of values. Prefix with
-          - for descending. Defaults to -created_at. The same field cannot be used
-          in both ascending and descending order at once.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -created_at. The same field cannot
+          be used in both directions. Rows with the same sort value are then ordered
+          by id ascending.
         explode: true
         in: query
         name: order
@@ -31407,7 +31421,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Pagination cursor returned by a previous call (cursor.next).
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -31446,7 +31462,7 @@ paths:
         \ including their stock configuration and redemption counters."
       operationId: listProgramRewardAssignments
       parameters:
-      - description: Unique program identifier.
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31455,8 +31471,8 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. Between 1 and 100. Defaults
-          to 10. Non-integer values are rounded.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -31468,9 +31484,10 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Sorting order. A single value or an array of values. Prefix with
-          - for descending. Defaults to -created_at. The same field cannot be used
-          in both ascending and descending order at once.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -created_at. The same field cannot
+          be used in both directions. Rows with the same sort value are then ordered
+          by id ascending.
         explode: true
         in: query
         name: order
@@ -31482,7 +31499,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Pagination cursor returned by a previous call (cursor.next).
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -31550,7 +31569,7 @@ paths:
         - [Get program membership](/api-reference/programs/get-program-membership).
       operationId: listProgramMembers
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31559,8 +31578,8 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of members to return. Must be between 1 and 100.
-          Defaults to 10 when not provided.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -31572,9 +31591,10 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Field(s) to order results by. Prefix with - for descending order.
-          Accepts a single value or an array of values. Defaults to -created_at. Ordering
-          by the same field in both directions simultaneously is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -created_at. The same field cannot
+          be used in both directions. Rows with the same sort value are then ordered
+          by id ascending.
         explode: true
         in: query
         name: order
@@ -31590,8 +31610,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response. Must match the pattern ^lcrsmbr_[a-f0-9]+$."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -31601,8 +31622,9 @@ paths:
           pattern: "^lcrsmbr_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field-specific filter conditions, passed as a deep object, e.g.\
-          \ filters[status][conditions][$is] ACTIVE."
+      - description: "Filters the results. Pass a deep object, for example filters[status][conditions][$is]\
+          \ ACTIVE. Fields combine through junction, which defaults to AND. Omit filters\
+          \ to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -31656,7 +31678,7 @@ paths:
         The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
       operationId: createProgramMember
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31815,7 +31837,7 @@ paths:
         An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
       operationId: batchCreateProgramMembers
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31868,7 +31890,7 @@ paths:
         Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
       operationId: deleteProgramMember
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31877,7 +31899,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -31918,7 +31940,7 @@ paths:
         Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
       operationId: getProgramMember
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -31927,7 +31949,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32078,7 +32100,7 @@ paths:
         Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
       operationId: updateProgramMember
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32087,7 +32109,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32136,7 +32158,7 @@ paths:
         identification_type chooses how customerId is read. It defaults to customer_id.
       operationId: getProgramMembership
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32145,9 +32167,9 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Unique identifier of the customer or member, interpreted according\
-          \ to identification_type: a Voucherify customer ID (cust_...), a customer\
-          \ source_id, or a loyalty member ID (lmbr_...)."
+      - description: "Identifies the customer or member. identification_type selects\
+          \ the value: a Voucherify customer ID (cust_...), a customer source_id,\
+          \ or a loyalty member ID (lmbr_...)."
         explode: false
         in: path
         name: customerId
@@ -32155,7 +32177,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Chooses how customerId is read. customer_id is the Voucherify
+      - description: Selects how customerId is read. customer_id is the Voucherify
           customer ID and the default. customer_source_id is the customers source_id.
           member_id is the loyalty member ID.
         explode: true
@@ -32309,7 +32331,7 @@ paths:
         Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
       operationId: activateProgramMember
       parameters:
-      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+. Required."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32318,7 +32340,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Identifies the member. Format lmbr_[a-f0-9]+. Required."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32360,8 +32382,7 @@ paths:
         Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
       operationId: deactivateProgramMember
       parameters:
-      - description: "Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+\
-          \ format."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32370,7 +32391,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32413,7 +32434,7 @@ paths:
         After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
       operationId: listProgramMemberActivities
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32422,7 +32443,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32431,9 +32452,8 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of activities to return. An integer from 1 to
-          100. Numeric strings are accepted and rounded to the nearest integer. Defaults
-          to 10 when omitted.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -32445,11 +32465,10 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Sort field. Allowed values are created_at and -created_at. Defaults\
-          \ to -created_at when omitted, null, or an empty array. Accepts one value\
-          \ or an array of those values. Any other value is rejected. An array that\
-          \ contains both directions is rejected. Rows that share a created_at millisecond\
-          \ are then ordered by id ascending."
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -created_at. The same field cannot
+          be used in both directions. Rows with the same sort value are then ordered
+          by id ascending.
         explode: true
         in: query
         name: order
@@ -32461,8 +32480,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response. Must match the pattern ^lcrsambr_[a-f0-9]+$."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -32472,8 +32492,9 @@ paths:
           pattern: "^lcrsambr_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field-specific filter conditions, passed as a deep object, e.g.\
-          \ filters[type][conditions][$is] vl.member.created."
+      - description: "Filters the results. Pass a deep object, for example filters[type][conditions][$is]\
+          \ vl.member.created. Fields combine through junction, which defaults to\
+          \ AND. Omit filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -32706,7 +32727,7 @@ paths:
         The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
       operationId: adjustCardPoints
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32715,7 +32736,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32724,7 +32745,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -32827,7 +32848,7 @@ paths:
         After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
       operationId: listCardActivities
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -32836,7 +32857,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -32845,7 +32866,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -32854,9 +32875,8 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of activities to return. An integer from 1 to
-          100. Numeric strings are accepted and rounded to the nearest integer. Defaults
-          to 10 when omitted.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -32868,11 +32888,10 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Sort field. Allowed values are created_at and -created_at. Defaults\
-          \ to -created_at when omitted, null, or an empty array. Accepts one value\
-          \ or an array of those values. Any other value is rejected. An array that\
-          \ contains both directions is rejected. Rows that share a created_at millisecond\
-          \ are then ordered by id ascending."
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -created_at. The same field cannot
+          be used in both directions. Rows with the same sort value are then ordered
+          by id ascending.
         explode: true
         in: query
         name: order
@@ -32884,8 +32903,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response. Must match the pattern ^lcrsacrd_[a-f0-9]+$."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -32895,8 +32915,9 @@ paths:
           pattern: "^lcrsacrd_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field-specific filter conditions, passed as a deep object, e.g.\
-          \ filters[type][conditions][$is] vl.card.created."
+      - description: "Filters the results. Pass a deep object, for example filters[type][conditions][$is]\
+          \ vl.card.created. Fields combine through junction, which defaults to AND.\
+          \ Omit filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -33130,7 +33151,7 @@ paths:
         Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
       operationId: listCardPendingPoints
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33139,7 +33160,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33148,7 +33169,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -33157,8 +33178,8 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of buckets to return. Must be between 1 and 100.
-          Defaults to 10 when not provided.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -33170,9 +33191,10 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Field(s) to order results by. Valid orders are date and -date;
-          defaults to date (soonest activation first). Ordering by the same field
-          in both directions simultaneously is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to date. Soonest activation first.
+          The same field cannot be used in both directions. Rows with the same sort
+          value are then ordered by id ascending.
         explode: true
         in: query
         name: order
@@ -33184,9 +33206,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: |-
-          Pagination cursor returned in the cursor.next field of a previous response.
-          Must match the pattern ^lcrscppb_[a-f0-9]+$.
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -33196,8 +33218,9 @@ paths:
           pattern: "^lcrscppb_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field-specific filter conditions, passed as a deep object, for\
-          \ example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c."
+      - description: "Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is]\
+          \ lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults\
+          \ to AND. Omit filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -33251,7 +33274,7 @@ paths:
         Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
       operationId: activateCardPendingPointsBucket
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33260,7 +33283,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33269,7 +33292,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -33278,7 +33301,7 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Pending points bucket ID (format lcppb_[a-f0-9]+)."
+      - description: "Identifies the pending points bucket. Format lcppb_[a-f0-9]+."
         explode: false
         in: path
         name: bucketId
@@ -33334,7 +33357,7 @@ paths:
         Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
       operationId: cancelCardPendingPointsBucket
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33343,7 +33366,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33352,7 +33375,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -33361,7 +33384,7 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Pending points bucket ID (format lcppb_[a-f0-9]+)."
+      - description: "Identifies the pending points bucket. Format lcppb_[a-f0-9]+."
         explode: false
         in: path
         name: bucketId
@@ -33418,7 +33441,7 @@ paths:
         Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
       operationId: listCardExpiringPoints
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33427,7 +33450,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33436,7 +33459,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -33445,8 +33468,8 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of buckets to return. Must be between 1 and 100.
-          Defaults to 10 when not provided.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -33458,9 +33481,10 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Field(s) to order results by. Valid orders are expiration_date
-          and -expiration_date; defaults to expiration_date (soonest expiration first).
-          Ordering by the same field in both directions simultaneously is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to expiration_date. Soonest expiration
+          first. The same field cannot be used in both directions. Rows with the same
+          sort value are then ordered by id ascending.
         explode: true
         in: query
         name: order
@@ -33472,8 +33496,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response. Must match the pattern ^lcrspeb_[a-f0-9]+$."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -33483,8 +33508,9 @@ paths:
           pattern: "^lcrspeb_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field-specific filter conditions, passed as a deep object, for\
-          \ example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea."
+      - description: "Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is]\
+          \ lcdef_1297339938ae248cea. Fields combine through junction, which defaults\
+          \ to AND. Omit filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -33539,7 +33565,7 @@ paths:
         Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
       operationId: expireCardPointsBucket
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33548,7 +33574,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33557,7 +33583,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -33566,7 +33592,7 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Points expiration bucket ID (format lcpeb_[a-f0-9]+)."
+      - description: "Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+."
         explode: false
         in: path
         name: bucketId
@@ -33626,7 +33652,7 @@ paths:
         \ found."
       operationId: listCardTransactions
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33635,7 +33661,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33644,7 +33670,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Loyalty card ID (format lcrd_[a-f0-9]+)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -33653,8 +33679,8 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of transactions to return. Must be between 1 and
-          100. Defaults to 10 when not provided.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -33666,9 +33692,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Orders results by transaction id. -id is newest first and the
-          default. id is oldest first. An array that orders by id and -id together
-          is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -id. Newest first. The same field
+          cannot be used in both directions.
         explode: true
         in: query
         name: order
@@ -33680,8 +33706,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response. Must match the pattern ^lcrsctx_[a-f0-9]+$."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -33691,8 +33718,9 @@ paths:
           pattern: "^lcrsctx_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field-specific filter conditions, passed as a deep object, e.g.\
-          \ filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c."
+      - description: "Filters the results. Pass a deep object, for example filters[id][conditions][$is]\
+          \ lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults\
+          \ to AND. Omit filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -33854,8 +33882,7 @@ paths:
         - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
       operationId: refundRewardPurchase
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -33864,8 +33891,8 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Unique reward transaction identifier of the purchase to refund\
-          \ (format: lrtx_ followed by hexadecimal characters)."
+      - description: "Identifies the reward transaction of the purchase to refund.\
+          \ Format lrtx_[a-f0-9]+."
         explode: false
         in: path
         name: rewardTransactionId
@@ -33946,16 +33973,16 @@ paths:
         \ when the program or the member doesnt exist. The program is checked first."
       operationId: listMemberRewardPurchases
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -33964,8 +33991,8 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. An integer between 1 and 100;
-          numeric strings are also accepted. Defaults to 10.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -33977,9 +34004,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Orders results by transaction id. -id is newest first and the
-          default. id is oldest first. An array that orders by id and -id together
-          is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -id. Newest first. The same field
+          cannot be used in both directions.
         explode: true
         in: query
         name: order
@@ -33991,8 +34018,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response (format: lcrstrx_ followed by hexadecimal characters)."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -34002,8 +34030,9 @@ paths:
           pattern: "^lcrstrx_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field filters, e.g. filters[reward_id][conditions][$is] lrew_....\
-          \ Each field accepts a conditions object with condition operators."
+      - description: "Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is]\
+          \ lrew_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -34128,16 +34157,16 @@ paths:
         - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
       operationId: purchaseMemberReward
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -34178,8 +34207,7 @@ paths:
         \ exist. The program is checked first."
       operationId: listMemberOrderPayments
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -34188,7 +34216,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Identifies the program member (lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -34197,8 +34225,8 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. An integer between 1 and 100;
-          numeric strings are also accepted. Defaults to 10.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -34210,9 +34238,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Orders results by transaction id. -id is newest first and the
-          default. id is oldest first. An array that orders by id and -id together
-          is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -id. Newest first. The same field
+          cannot be used in both directions.
         explode: true
         in: query
         name: order
@@ -34224,8 +34252,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response (format: lcrsotx_ followed by hexadecimal characters)."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -34235,8 +34264,9 @@ paths:
           pattern: "^lcrsotx_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Filters results by field, e.g. filters[id][conditions][$is]\
-          \ lotx_.... Each field accepts a conditions object with condition operators."
+      - description: "Filters the results. Pass a deep object, for example filters[id][conditions][$is]\
+          \ lotx_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -34343,8 +34373,7 @@ paths:
         - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
       operationId: createMemberOrderPayment
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -34353,7 +34382,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Identifies the program member (lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -34421,7 +34450,7 @@ paths:
         Supports filtering by benefit ID and creation date.
       operationId: listMemberBenefitTransactions
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -34430,7 +34459,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -34439,8 +34468,8 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. An integer between 1 and 100;
-          numeric strings are also accepted. Defaults to 10.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -34452,9 +34481,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: Field(s) to order results by. Valid orders are id and -id; defaults
-          to -id (newest first). Ordering by the same field in both directions simultaneously
-          is rejected.
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -id. Newest first. The same field
+          cannot be used in both directions.
         explode: true
         in: query
         name: order
@@ -34466,8 +34495,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response (format: lcrsbtx_ followed by hexadecimal characters)."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -34477,8 +34507,9 @@ paths:
           pattern: "^lcrsbtx_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field filters, e.g. filters[benefit_id][conditions][$is] lben_....\
-          \ Each field accepts a conditions object with condition operators."
+      - description: "Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is]\
+          \ lben_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -34542,7 +34573,7 @@ paths:
         After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
       operationId: listMemberTierTransactions
       parameters:
-      - description: "Unique loyalty program ID (format lprg_[a-f0-9]+)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -34551,7 +34582,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Program member ID (format lmbr_[a-f0-9]+)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -34560,8 +34591,8 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Maximum number of items to return. An integer between 1 and 100;
-          numeric strings are also accepted. Defaults to 10.
+      - description: Limits the page size to an integer from 1 to 100. Defaults to
+          10. A numeric string is accepted and rounded to the nearest integer.
         explode: true
         in: query
         name: limit
@@ -34573,10 +34604,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: "Sort field. Allowed values are id and -id. Defaults to -id,\
-          \ newest first, when omitted, null, or an empty array. Accepts one value\
-          \ or an array of those values. An array that contains both directions is\
-          \ rejected."
+      - description: Orders the results. Accepts one value or an array. Prefix a field
+          with - for descending order. Defaults to -id. Newest first. The same field
+          cannot be used in both directions.
         explode: true
         in: query
         name: order
@@ -34588,8 +34618,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Pagination cursor returned in the cursor.next field of a previous\
-          \ response (format: lcrsttx_ followed by hexadecimal characters)."
+      - description: "Continues pagination. Pass the cursor.next value from a previous\
+          \ response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and\
+          \ order of that response."
         explode: true
         in: query
         name: cursor
@@ -34599,8 +34630,9 @@ paths:
           pattern: "^lcrsttx_[a-f0-9]+$"
           type: string
         style: form
-      - description: "Field filters. card_id, card_definition_id, and created_at.\
-          \ Example: filters[card_id][conditions][$is] lcrd_...."
+      - description: "Filters the results. Pass a deep object, for example filters[card_id][conditions][$is]\
+          \ lcrd_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -34757,8 +34789,7 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
       operationId: listMemberCardDailyReports
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -34767,8 +34798,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Unique loyalty member identifier (format: lmbr_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -34777,8 +34807,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Unique loyalty card identifier (format: lcrd_ followed by hexadecimal\
-          \ characters)."
+      - description: "Identifies the loyalty card. Format lcrd_[a-f0-9]+."
         explode: false
         in: path
         name: cardId
@@ -34787,7 +34816,7 @@ paths:
           pattern: "^lcrd_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Start of the report date range (inclusive), in YYYY-MM-DD format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -34797,8 +34826,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "End of the report date range (inclusive), in YYYY-MM-DD format.\
-          \ Must be after start_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -34808,9 +34837,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Aggregation resolution of the report. The allowed date range\
-          \ depends on the resolution: day – max 90 days; week – max 12 weeks; month\
-          \ – max 12 months; quarter – max 4 quarters."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -35042,8 +35071,7 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
       operationId: getMemberEarningRuleDailyReport
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -35052,8 +35080,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Unique loyalty member identifier (format: lmbr_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the member. Format lmbr_[a-f0-9]+."
         explode: false
         in: path
         name: memberId
@@ -35062,8 +35089,7 @@ paths:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Unique earning rule identifier (format: lern_ followed by hexadecimal\
-          \ characters)."
+      - description: "Identifies the earning rule. Format lern_[a-f0-9]+."
         explode: false
         in: path
         name: earningRuleId
@@ -35072,7 +35098,7 @@ paths:
           pattern: "^lern_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Start of the report date range (inclusive), in YYYY-MM-DD format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -35082,8 +35108,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "End of the report date range (inclusive), in YYYY-MM-DD format.\
-          \ Must be after start_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -35093,9 +35119,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Aggregation resolution of the report. The allowed date range\
-          \ depends on the resolution: day – max 90 days; week – max 12 weeks; month\
-          \ – max 12 months; quarter – max 4 quarters."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -35170,17 +35196,16 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramSpendingDailyReports
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Sets the inclusive start of the report date range (YYYY-MM-DD).
-          Must be before end_date.
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -35190,7 +35215,7 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: Sets the inclusive end of the report date range (YYYY-MM-DD).
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
           Must be after start_date.
         explode: true
         in: query
@@ -35201,8 +35226,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the aggregation resolution. Allowed date range: day max\
-          \ 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -35215,8 +35241,9 @@ paths:
           - quarter
           type: string
         style: form
-      - description: "Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is]\
-          \ lcdef_...."
+      - description: "Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is]\
+          \ lcdef_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -35466,17 +35493,18 @@ paths:
         Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramSpendingSummaryReports
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is]\
-          \ lcdef_...."
+      - description: "Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is]\
+          \ lcdef_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -35541,16 +35569,16 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramTiersDailyReports
       parameters:
-      - description: "Identifies the loyalty program. Format: lprg_ followed by hexadecimal\
-          \ characters."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Sets the inclusive start of the range, in YYYY-MM-DD format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -35560,8 +35588,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the inclusive end of the range, in YYYY-MM-DD format. Must\
-          \ be after start_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -35571,8 +35599,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the aggregation resolution. Allowed range: day up to 90\
-          \ days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -35585,8 +35614,9 @@ paths:
           - quarter
           type: string
         style: form
-      - description: "Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is]\
-          \ lts_...."
+      - description: "Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is]\
+          \ lts_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -35718,18 +35748,18 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramTiersSummaryReports
       parameters:
-      - description: "Identifies the loyalty program. Format: lprg_ followed by hexadecimal\
-          \ characters."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Filters rows by tier_structure_id and tier_id. Omitting filters\
-          \ or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is]\
-          \ lt_...."
+      - description: "Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is]\
+          \ lt_.... Fields combine through junction, which defaults to AND. Omit filters\
+          \ to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -35810,17 +35840,16 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramRewardsDailyReports
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Sets the inclusive start of the report date range, in YYYY-MM-DD\
-          \ format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -35830,8 +35859,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the inclusive end of the report date range, in YYYY-MM-DD\
-          \ format. Requires start_date to be before end_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -35841,8 +35870,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the aggregation resolution. Allows at most 90 days for\
-          \ day, 12 weeks for week, 12 months for month, and 4 quarters for quarter."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -35855,8 +35885,9 @@ paths:
           - quarter
           type: string
         style: form
-      - description: "Filters rows by field conditions, e.g. filters[reward_id][conditions][$is]\
-          \ lrew_...."
+      - description: "Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is]\
+          \ lrew_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -35900,17 +35931,18 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramRewardsSummaryReports
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Filters rows by field conditions, e.g. filters[reward_id][conditions][$is]\
-          \ lrew_...."
+      - description: "Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is]\
+          \ lrew_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -35962,17 +35994,16 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramRewardsSpendingsDailyReports
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Sets the inclusive start of the report date range, in YYYY-MM-DD\
-          \ format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -35982,8 +36013,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the inclusive end of the report date range, in YYYY-MM-DD\
-          \ format. Requires start_date to be before end_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -35993,8 +36024,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the aggregation resolution. Allows at most 90 days for\
-          \ day, 12 weeks for week, 12 months for month, and 4 quarters for quarter."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -36007,8 +36039,9 @@ paths:
           - quarter
           type: string
         style: form
-      - description: "Filters rows by field conditions, e.g. filters[reward_id][conditions][$is]\
-          \ lrew_...."
+      - description: "Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is]\
+          \ lrew_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -36070,17 +36103,18 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramRewardsSpendingsSummaryReports
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Filters rows by field conditions, e.g. filters[reward_id][conditions][$is]\
-          \ lrew_...."
+      - description: "Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is]\
+          \ lrew_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -36149,17 +36183,16 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramMembersDailyReports
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Sets the inclusive start of the report date range, in YYYY-MM-DD\
-          \ format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -36169,8 +36202,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the inclusive end of the report date range, in YYYY-MM-DD\
-          \ format. Requires start_date to be before end_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -36180,8 +36213,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Sets the aggregation resolution. Allows at most 90 days for\
-          \ day, 12 weeks for week, 12 months for month, and 4 quarters for quarter."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -36242,13 +36276,13 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramMembersSummaryReports
       parameters:
-      - description: Identifies the loyalty program (lprg_ followed by hexadecimal
-          characters).
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
         required: true
         schema:
+          pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
       responses:
@@ -36294,8 +36328,7 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: getProgramPointsEarningsDailyReport
       parameters:
-      - description: "Identifies the loyalty program. Format: lprg_ followed by hexadecimal\
-          \ characters."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -36304,7 +36337,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Start of the report date range (inclusive), in YYYY-MM-DD format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -36314,8 +36347,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "End of the report date range (inclusive), in YYYY-MM-DD format.\
-          \ Must be after start_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -36325,9 +36358,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Aggregation resolution of the report. The allowed date range\
-          \ depends on the resolution: day – max 90 days; week – max 12 weeks; month\
-          \ – max 12 months; quarter – max 4 quarters."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -36340,9 +36373,9 @@ paths:
           - quarter
           type: string
         style: form
-      - description: Filters rows by earning rule ID and card definition ID. Each
-          field takes a conditions object. Omitting filters or setting it to null
-          applies no field filters.
+      - description: "Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is]\
+          \ lern_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -36538,8 +36571,7 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: getProgramPointsEarningsSummaryReport
       parameters:
-      - description: "Identifies the loyalty program. Format: lprg_ followed by hexadecimal\
-          \ characters."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -36548,9 +36580,9 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Filters rows by earning rule ID and card definition ID. Each
-          field takes a conditions object. Omitting filters or setting it to null
-          applies no field filters.
+      - description: "Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is]\
+          \ lern_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -36629,8 +36661,7 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramEarningRulesDailyReports
       parameters:
-      - description: "Unique loyalty program identifier (format: lprg_ followed by\
-          \ hexadecimal characters)."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -36639,7 +36670,7 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: "Start of the report date range (inclusive), in YYYY-MM-DD format."
+      - description: Sets the inclusive start of the report date range. Format YYYY-MM-DD.
         explode: true
         in: query
         name: start_date
@@ -36649,8 +36680,8 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "End of the report date range (inclusive), in YYYY-MM-DD format.\
-          \ Must be after start_date."
+      - description: Sets the inclusive end of the report date range. Format YYYY-MM-DD.
+          Must be after start_date.
         explode: true
         in: query
         name: end_date
@@ -36660,9 +36691,9 @@ paths:
           pattern: "^\\d{4}-\\d{2}-\\d{2}$"
           type: string
         style: form
-      - description: "Aggregation resolution of the report. The allowed date range\
-          \ depends on the resolution: day – max 90 days; week – max 12 weeks; month\
-          \ – max 12 months; quarter – max 4 quarters."
+      - description: "Sets the aggregation resolution. day allows at most 90 days,\
+          \ week at most 12 weeks, month at most 12 months, and quarter at most 4\
+          \ quarters."
         explode: true
         in: query
         name: resolution
@@ -36675,8 +36706,9 @@ paths:
           - quarter
           type: string
         style: form
-      - description: Field filters. Each field accepts a conditions object with condition
-          operators.
+      - description: "Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is]\
+          \ lern_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -36886,8 +36918,7 @@ paths:
         Returns 400 when query validation fails. Returns 404 when the program does not exist.
       operationId: listProgramEarningRulesSummaryReports
       parameters:
-      - description: "Identifies the loyalty program. Format: lprg_ followed by hexadecimal\
-          \ characters."
+      - description: "Identifies the loyalty program. Format lprg_[a-f0-9]+."
         explode: false
         in: path
         name: programId
@@ -36896,8 +36927,9 @@ paths:
           pattern: "^lprg_[a-f0-9]+$"
           type: string
         style: simple
-      - description: Filters rows by field. Each field accepts a conditions object
-          with condition operators.
+      - description: "Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is]\
+          \ lern_.... Fields combine through junction, which defaults to AND. Omit\
+          \ filters to apply no field filter."
         explode: true
         in: query
         name: filters
@@ -36976,7 +37008,7 @@ paths:
       description: Returns a single earning rule by its ID.
       operationId: getEarningRule
       parameters:
-      - description: Earning rule ID.
+      - description: "Identifies the earning rule. Format lern_[a-f0-9]+."
         explode: false
         in: path
         name: earningRuleId
@@ -37090,7 +37122,7 @@ paths:
       description: Returns a single benefit by its ID.
       operationId: getBenefit
       parameters:
-      - description: "Unique benefit ID, prefixed with lben_."
+      - description: "Identifies the benefit. Format lben_[a-f0-9]+."
         explode: false
         in: path
         name: benefitId
@@ -37136,7 +37168,7 @@ paths:
       description: Returns a single reward by its ID.
       operationId: getReward
       parameters:
-      - description: "Unique reward identifier, prefixed with lrew_."
+      - description: "Identifies the reward. Format lrew_[a-f0-9]+."
         explode: false
         in: path
         name: rewardId
@@ -50576,8 +50608,9 @@ components:
         loyalty:
           $ref: '#/components/schemas/CustomerLoyalty'
         loyalty_memberships:
-          description: List of Loyalty v2 program memberships for the customer. `null`
-            when no memberships are stored.
+          description: List of Loyalty v2 program memberships for the customer. Lists
+            only existing `ACTIVE` memberships. `null` when no memberships are stored.
+            Absent or `null` for `v1/orders` and `v1/publications` endpoints and events.
           items:
             $ref: '#/components/schemas/CustomerLoyaltyMembership'
           nullable: true
@@ -50800,8 +50833,9 @@ components:
         loyalty:
           $ref: '#/components/schemas/CustomerLoyalty'
         loyalty_memberships:
-          description: List of Loyalty v2 program memberships for the customer. `null`
-            when no memberships are stored.
+          description: List of Loyalty v2 program memberships for the customer. Lists
+            only existing `ACTIVE` memberships. `null` when no memberships are stored.
+            Absent or `null` for `v1/orders` and `v1/publications` endpoints and events.
           items:
             $ref: '#/components/schemas/CustomerLoyaltyMembership'
           nullable: true
@@ -51914,8 +51948,9 @@ components:
         loyalty:
           $ref: '#/components/schemas/CustomerLoyalty'
         loyalty_memberships:
-          description: List of Loyalty v2 program memberships for the customer. `null`
-            when no memberships are stored.
+          description: List of Loyalty v2 program memberships for the customer. Lists
+            only existing `ACTIVE` memberships. `null` when no memberships are stored.
+            Absent or `null` for `v1/orders` and `v1/publications` endpoints and events.
           items:
             $ref: '#/components/schemas/CustomerLoyaltyMembership'
           nullable: true
@@ -51997,8 +52032,8 @@ components:
       description: Filters for program earning-rules reports.
       properties:
         junction:
-          description: Logical junction between the field filters. Defaults to AND
-            behavior.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -73740,7 +73775,7 @@ components:
       description: Filters for program points-earnings reports.
       properties:
         junction:
-          description: Combines the field filters. Allowed values are `AND` and `OR`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
             Defaults to `AND`.
           enum:
           - AND
@@ -73750,7 +73785,7 @@ components:
         earning_rule_id:
           $ref: '#/components/schemas/EarningRuleIdFilterConditions'
         card_definition_id:
-          $ref: '#/components/schemas/PointsEarningsReportFilterCardDefinitionIdConditions'
+          $ref: '#/components/schemas/ReportCardDefinitionIdFilterConditions'
       title: PointsEarningsReportListFilters
       type: object
     ProductCollectionsCreateRequestBody:
@@ -89459,8 +89494,8 @@ components:
       description: Filters for program rewards reports.
       properties:
         junction:
-          description: Sets the logical junction between the field filters. Defaults
-            to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -89475,8 +89510,8 @@ components:
       description: Filters for program rewards spendings reports.
       properties:
         junction:
-          description: Sets the logical junction between the field filters. Defaults
-            to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -89485,7 +89520,7 @@ components:
         reward_id:
           $ref: '#/components/schemas/RewardsReportFilterRewardIdConditions'
         card_definition_id:
-          $ref: '#/components/schemas/SpendingReportFilterCardDefinitionIdConditions'
+          $ref: '#/components/schemas/ReportCardDefinitionIdFilterConditions'
         cost_id:
           $ref: '#/components/schemas/RewardsSpendingsReportFilterCostIdConditions'
         spending_id:
@@ -89921,15 +89956,15 @@ components:
       description: Filters for spending reports.
       properties:
         junction:
-          description: "Sets the logical junction between field filters. Allowed values:\
-            \ `AND`, `OR`. Defaults to `AND`."
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
           nullable: true
           type: string
         card_definition_id:
-          $ref: '#/components/schemas/SpendingReportFilterCardDefinitionIdConditions'
+          $ref: '#/components/schemas/ReportCardDefinitionIdFilterConditions'
       title: SpendingReportListFilters
       type: object
     TemplatesCampaignsCampaignSetupCreateRequestBody:
@@ -91235,8 +91270,8 @@ components:
       description: Filters for program tiers reports.
       properties:
         junction:
-          description: "Joins the field filters. Allowed values: `AND`, `OR`. Defaults\
-            \ to `AND`."
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -93116,7 +93151,8 @@ components:
       description: "Field-specific filters for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/activities`."
       properties:
         junction:
-          description: How multiple field filters are combined. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -93397,8 +93433,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/benefits/transactions`."
       properties:
         junction:
-          description: "Defines the logical junction between field filters. Allowed\
-            \ values: `AND`, `OR`. Defaults to `AND`."
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -93483,7 +93519,8 @@ components:
       description: "Field-specific filters for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/activities`."
       properties:
         junction:
-          description: How multiple field filters are combined. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -93856,7 +93893,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/expiring-points`."
       properties:
         junction:
-          description: How multiple field filters are combined. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -94106,7 +94144,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/pending-points`."
       properties:
         junction:
-          description: How multiple field filters are combined. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -94291,7 +94330,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/cards/{cardId}/transactions`."
       properties:
         junction:
-          description: How multiple field filters are combined. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -94959,7 +94999,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members`."
       properties:
         junction:
-          description: How multiple field filters are combined. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -95063,7 +95104,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/orders/payments`."
       properties:
         junction:
-          description: Joins field filters with `AND` or `OR`. Defaults to `AND`.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -95188,8 +95230,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/rewards/purchases`."
       properties:
         junction:
-          description: Logical junction between the field filters. Defaults to AND
-            behavior.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -95264,8 +95306,8 @@ components:
       description: "Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{memberId}/tiers/transactions`."
       properties:
         junction:
-          description: Logical junction between the field filters. Defaults to AND
-            behavior.
+          description: Joins the field filters. Allowed values are `AND` and `OR`.
+            Defaults to `AND`.
           enum:
           - AND
           - OR
@@ -107306,8 +107348,8 @@ components:
       type: object
     CardDefinitionIdFilterConditions:
       additionalProperties: false
-      description: ID filter conditions for card definition IDs. At least one condition
-        is required.
+      description: "ID conditions. Format `lcdef_[a-f0-9]+`. At least one condition\
+        \ is required."
       properties:
         conditions:
           $ref: '#/components/schemas/CardDefinitionIdFilterConditionsConditions'
@@ -107351,6 +107393,13 @@ components:
           nullable: true
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
+        card_type:
+          default: INDIVIDUAL
+          description: "Card type. Currently, only `INDIVIDUAL` is supported."
+          enum:
+          - INDIVIDUAL
+          nullable: true
+          type: string
         created_at:
           description: Timestamp when the bucket was created (ISO 8601).
           format: date-time
@@ -107366,13 +107415,6 @@ components:
           description: Unique pending point bucket ID.
           nullable: true
           pattern: "^lcppb_[a-f0-9]+$"
-          type: string
-        card_type:
-          default: INDIVIDUAL
-          description: Card type.
-          enum:
-          - INDIVIDUAL
-          nullable: true
           type: string
         points:
           $ref: '#/components/schemas/CardPendingPointsBucketPoints'
@@ -107448,6 +107490,13 @@ components:
           nullable: true
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
+        card_type:
+          default: INDIVIDUAL
+          description: "Card type. Currently, only `INDIVIDUAL` is supported."
+          enum:
+          - INDIVIDUAL
+          nullable: true
+          type: string
         created_at:
           description: Timestamp when the bucket was created (ISO 8601).
           format: date-time
@@ -107468,13 +107517,6 @@ components:
           description: Voucherify ID of the customer owning the card.
           nullable: true
           pattern: "^cust_[a-zA-Z0-9]+"
-          type: string
-        card_type:
-          default: INDIVIDUAL
-          description: "Card type. Currently, only `INDIVIDUAL` is supported."
-          enum:
-          - INDIVIDUAL
-          nullable: true
           type: string
         points:
           $ref: '#/components/schemas/CardPointsBucketPoints'
@@ -108444,8 +108486,9 @@ components:
         loyalty:
           $ref: '#/components/schemas/CustomerLoyalty'
         loyalty_memberships:
-          description: List of Loyalty v2 program memberships for the customer. `null`
-            when no memberships are stored.
+          description: List of Loyalty v2 program memberships for the customer. Lists
+            only existing `ACTIVE` memberships. `null` when no memberships are stored.
+            Absent or `null` for `v1/orders` and `v1/publications` endpoints and events.
           items:
             $ref: '#/components/schemas/CustomerLoyaltyMembership'
           nullable: true
@@ -111585,8 +111628,8 @@ components:
       type: object
     LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersId:
       additionalProperties: false
-      description: ID filter conditions for member activity IDs. At least one condition
-        is required.
+      description: "ID conditions. Format `lambr_[a-f0-9]+`. At least one condition\
+        \ is required."
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersIdConditions'
@@ -111594,9 +111637,7 @@ components:
       type: object
     LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersType:
       additionalProperties: false
-      description: |-
-        Enum filter conditions for member activity types. At least one condition is
-        required.
+      description: Enum conditions. At least one condition is required.
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersTypeConditions'
@@ -111614,8 +111655,8 @@ components:
       type: object
     LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFiltersId:
       additionalProperties: false
-      description: ID filter conditions for card activity IDs. At least one condition
-        is required.
+      description: "ID conditions. Format `lacrd_[a-f0-9]+`. At least one condition\
+        \ is required."
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFiltersIdConditions'
@@ -111623,9 +111664,7 @@ components:
       type: object
     LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFiltersType:
       additionalProperties: false
-      description: |-
-        Enum filter conditions for card activity types. At least one condition is
-        required.
+      description: Enum conditions. At least one condition is required.
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFiltersTypeConditions'
@@ -111633,8 +111672,8 @@ components:
       type: object
     LoyaltiesProgramsMembersCardsTransactionsListRequestQueryId:
       additionalProperties: false
-      description: ID filter conditions for card transaction IDs. At least one condition
-        is required.
+      description: "ID conditions. Format `lctx_[a-f0-9]+`. At least one condition\
+        \ is required."
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersCardsTransactionsListRequestQueryIdConditions'
@@ -111642,8 +111681,8 @@ components:
       type: object
     LoyaltiesProgramsMembersListRequestQueryCustomerId:
       additionalProperties: false
-      description: ID filter conditions for customer IDs. At least one condition is
-        required.
+      description: "ID conditions. Format `cust_[a-zA-Z0-9]+`. At least one condition\
+        \ is required."
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersListRequestQueryCustomerIdConditions'
@@ -111651,8 +111690,8 @@ components:
       type: object
     LoyaltiesProgramsMembersListRequestQueryId:
       additionalProperties: false
-      description: ID filter conditions for member IDs. At least one condition is
-        required.
+      description: "ID conditions. Format `lmbr_[a-f0-9]+`. At least one condition\
+        \ is required."
       properties:
         conditions:
           $ref: '#/components/schemas/LoyaltiesProgramsMembersListRequestQueryIdConditions'
@@ -111734,7 +111773,7 @@ components:
       type: object
     LoyaltiesProgramsMembersTiersTransactionsListRequestQueryCardDefinitionId:
       additionalProperties: false
-      description: "ID filter conditions for card definition ids. Values must match\
+      description: "ID filter conditions for card definition IDs. Values must match\
         \ pattern `^lcdef_[a-f0-9]+$`. `$is`/`$is_not` accept a single value (string\
         \ or 1-element array); `$in`/`$not_in` accept a string or an array of 1-100\
         \ values."
@@ -118100,16 +118139,6 @@ components:
           type: string
           x-openapi-31-const: true
       title: PointsEarningsReportDailyEntry
-      type: object
-    PointsEarningsReportFilterCardDefinitionIdConditions:
-      description: "ID filter conditions for card definition ID. Values must match\
-        \ pattern `^lcdef_[a-f0-9]+$`. `$is`/`$is_not` accept a single value (string\
-        \ or 1-element array); `$in`/`$not_in` accept a string or an array of 1-100\
-        \ values."
-      properties:
-        conditions:
-          $ref: '#/components/schemas/PointsEarningsReportFilterCardDefinitionIdConditionsConditions'
-      title: PointsEarningsReportFilterCardDefinitionIdConditions
       type: object
     PointsEarningsReportSummaryEntry:
       description: "Total program points-earnings statistics for one earning rule,\
@@ -124786,6 +124815,17 @@ components:
           type: string
       title: ReferrerId
       type: object
+    ReportCardDefinitionIdFilterConditions:
+      additionalProperties: false
+      description: "ID filter conditions for card definition IDs. Values must match\
+        \ pattern `^lcdef_[a-f0-9]+$`. `$is`/`$is_not` accept a single value (string\
+        \ or 1-element array); `$in`/`$not_in` accept a string or an array of 1-100\
+        \ values."
+      properties:
+        conditions:
+          $ref: '#/components/schemas/ReportCardDefinitionIdFilterConditionsConditions'
+      title: ReportCardDefinitionIdFilterConditions
+      type: object
     RewardAssignment:
       example:
         updated_at: 2022-08-11T16:01:34.885Z
@@ -125930,16 +125970,6 @@ components:
           type: string
           x-openapi-31-const: true
       title: SpendingReportDailyEntry
-      type: object
-    SpendingReportFilterCardDefinitionIdConditions:
-      description: "ID filter conditions for card definition ids. Values must match\
-        \ pattern `^lcdef_[a-f0-9]+$`. `$is`/`$is_not` accept a single value (string\
-        \ or 1-element array); `$in`/`$not_in` accept a string or an array of 1-100\
-        \ values."
-      properties:
-        conditions:
-          $ref: '#/components/schemas/SpendingReportFilterCardDefinitionIdConditionsConditions'
-      title: SpendingReportFilterCardDefinitionIdConditions
       type: object
     SpendingReportSummaryEntry:
       description: Total program spending statistics for one card definition that
@@ -129206,6 +129236,16 @@ components:
           points: 1.1730742509559433
         object: card
       properties:
+        id:
+          description: Identifies the card.
+          nullable: true
+          pattern: "^lcrd_[a-f0-9]+$"
+          type: string
+        card_definition_id:
+          description: Identifies the card definition.
+          nullable: true
+          pattern: "^lcdef_[a-f0-9]+$"
+          type: string
         card_type:
           default: INDIVIDUAL
           description: Card type. Currently only `INDIVIDUAL` is supported.
@@ -129213,39 +129253,28 @@ components:
           - INDIVIDUAL
           nullable: true
           type: string
-        lifetime_bucket:
-          $ref: '#/components/schemas/CardLifetimeBucket'
-        balance:
-          $ref: '#/components/schemas/CardBalance'
-        id:
-          description: Unique Voucherify ID of the card.
-          nullable: true
-          pattern: "^lcrd_[a-f0-9]+$"
-          type: string
-        card_definition_id:
-          description: Unique Voucherify ID of the card definition the card was created
-            from.
-          nullable: true
-          pattern: "^lcdef_[a-f0-9]+$"
-          type: string
         code:
           description: "Human-readable card code. Card code generation is asynchronous\
             \ - this field is `null` right after member creation and is populated\
             \ shortly after, once the background code generation completes."
           nullable: true
           type: string
-        next_expiration:
-          $ref: '#/components/schemas/CardNextExpiration'
-        next_activation:
-          $ref: '#/components/schemas/CardNextActivation'
+        lifetime_bucket:
+          $ref: '#/components/schemas/CardLifetimeBucket'
+        balance:
+          $ref: '#/components/schemas/CardBalance'
         object:
           default: card
-          description: "Object type marker, always `card`."
+          description: Object type. Always `card`.
           enum:
           - card
           nullable: true
           type: string
           x-openapi-31-const: true
+        next_expiration:
+          $ref: '#/components/schemas/CardNextExpiration'
+        next_activation:
+          $ref: '#/components/schemas/CardNextActivation'
       title: CardSimple
       type: object
     CardTransactionDetails:
@@ -129403,7 +129432,8 @@ components:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         status:
-          description: Member status.
+          description: Member status. List responses include only ACTIVE memberships.
+            INACTIVE and DELETED remain so existing SDK callers keep compiling.
           enum:
           - ACTIVE
           - INACTIVE
@@ -135982,6 +136012,16 @@ components:
         card_definition_id: card_definition_id
         object: card
       properties:
+        id:
+          description: Identifies the card.
+          nullable: true
+          pattern: "^lcrd_[a-f0-9]+$"
+          type: string
+        card_definition_id:
+          description: Identifies the card definition.
+          nullable: true
+          pattern: "^lcdef_[a-f0-9]+$"
+          type: string
         card_type:
           default: INDIVIDUAL
           description: Card type. Currently only `INDIVIDUAL` is supported.
@@ -135989,29 +136029,28 @@ components:
           - INDIVIDUAL
           nullable: true
           type: string
+        code:
+          description: "Human-readable card code. Card code generation is asynchronous\
+            \ - this field is `null` right after member creation and is populated\
+            \ shortly after, once the background code generation completes."
+          nullable: true
+          type: string
         lifetime_bucket:
           $ref: '#/components/schemas/CardLifetimeBucket'
         balance:
           $ref: '#/components/schemas/CardBalance'
-        id:
-          description: Identifies the card.
+        object:
+          default: card
+          description: Object type. Always `card`.
+          enum:
+          - card
           nullable: true
-          pattern: "^lcrd_[a-f0-9]+$"
           type: string
+          x-openapi-31-const: true
         program_id:
           description: Identifies the loyalty program.
           nullable: true
           pattern: "^lprg_[a-f0-9]+$"
-          type: string
-        card_definition_id:
-          description: Identifies the card definition.
-          nullable: true
-          pattern: "^lcdef_[a-f0-9]+$"
-          type: string
-        code:
-          description: Human-readable card code. `null` until asynchronous code generation
-            finishes.
-          nullable: true
           type: string
         customer_id:
           description: Identifies the customer linked to the card.
@@ -136034,14 +136073,6 @@ components:
           format: date-time
           nullable: true
           type: string
-        object:
-          default: card
-          description: Object type. Always `card`.
-          enum:
-          - card
-          nullable: true
-          type: string
-          x-openapi-31-const: true
       title: Card
       type: object
     CardBalance:
@@ -167957,7 +167988,7 @@ components:
       nullable: true
       properties:
         $is:
-          description: Value equals. Single value or an array with exactly one value.
+          description: Matches one value. A string or a one-element array.
           enum:
           - vl.member.created
           - vl.member.updated
@@ -167969,8 +168000,7 @@ components:
           nullable: true
           type: string
         $is_not:
-          description: Value does not equal. Single value or an array with exactly
-            one value.
+          description: Excludes one value. A string or a one-element array.
           enum:
           - vl.member.created
           - vl.member.updated
@@ -167982,7 +168012,8 @@ components:
           nullable: true
           type: string
         $in:
-          description: Value is one of. Single value or an array of 1-10 values.
+          description: Matches any of the values. A string or an array of 1 to 10
+            values.
           enum:
           - vl.member.created
           - vl.member.updated
@@ -167994,7 +168025,8 @@ components:
           nullable: true
           type: string
         $not_in:
-          description: Value is not one of. Single value or an array of 1-10 values.
+          description: Excludes any of the values. A string or an array of 1 to 10
+            values.
           enum:
           - vl.member.created
           - vl.member.updated
@@ -168035,7 +168067,7 @@ components:
       nullable: true
       properties:
         $is:
-          description: Value equals. Single value or an array with exactly one value.
+          description: Matches one value. A string or a one-element array.
           enum:
           - vl.card.created
           - vl.card.assigned
@@ -168045,8 +168077,7 @@ components:
           nullable: true
           type: string
         $is_not:
-          description: Value does not equal. Single value or an array with exactly
-            one value.
+          description: Excludes one value. A string or a one-element array.
           enum:
           - vl.card.created
           - vl.card.assigned
@@ -168056,7 +168087,8 @@ components:
           nullable: true
           type: string
         $in:
-          description: Value is one of. Single value or an array of 1-10 values.
+          description: Matches any of the values. A string or an array of 1 to 10
+            values.
           enum:
           - vl.card.created
           - vl.card.assigned
@@ -168066,7 +168098,8 @@ components:
           nullable: true
           type: string
         $not_in:
-          description: Value is not one of. Single value or an array of 1-10 values.
+          description: Excludes any of the values. A string or an array of 1 to 10
+            values.
           enum:
           - vl.card.created
           - vl.card.assigned
@@ -168116,29 +168149,30 @@ components:
       nullable: true
       properties:
         $is:
-          description: Value equals. Single value or an array with exactly one value.
+          description: Matches one value. A string or a one-element array.
           enum:
           - ACTIVE
           - INACTIVE
           nullable: true
           type: string
         $is_not:
-          description: Value does not equal. Single value or an array with exactly
-            one value.
+          description: Excludes one value. A string or a one-element array.
           enum:
           - ACTIVE
           - INACTIVE
           nullable: true
           type: string
         $in:
-          description: Value is one of. Single value or an array of 1-10 values.
+          description: Matches any of the values. A string or an array of 1 to 10
+            values.
           enum:
           - ACTIVE
           - INACTIVE
           nullable: true
           type: string
         $not_in:
-          description: Value is not one of. Single value or an array of 1-10 values.
+          description: Excludes any of the values. A string or an array of 1 to 10
+            values.
           enum:
           - ACTIVE
           - INACTIVE
@@ -172247,17 +172281,6 @@ components:
           type: object
       title: OrderItemSku
       type: object
-    PointsEarningsReportFilterCardDefinitionIdConditionsConditions:
-      additionalProperties: false
-      minProperties: 1
-      nullable: true
-      properties:
-        $is: {}
-        $is_not: {}
-        $in: {}
-        $not_in: {}
-      title: PointsEarningsReportFilterCardDefinitionIdConditionsConditions
-      type: object
     ProductCollectionsItemProductsItem:
       example:
         product_id: product_id
@@ -175999,6 +176022,17 @@ components:
           type: string
       title: ReferrerAddress
       type: object
+    ReportCardDefinitionIdFilterConditionsConditions:
+      additionalProperties: false
+      minProperties: 1
+      nullable: true
+      properties:
+        $is: {}
+        $is_not: {}
+        $in: {}
+        $not_in: {}
+      title: ReportCardDefinitionIdFilterConditionsConditions
+      type: object
     RewardAssignmentParametersLoyalty:
       description: Defines the equivalent points value of the reward.
       example:
@@ -176133,17 +176167,6 @@ components:
         $in: {}
         $not_in: {}
       title: RewardsSpendingsReportFilterSpendingIdConditionsConditions
-      type: object
-    SpendingReportFilterCardDefinitionIdConditionsConditions:
-      additionalProperties: false
-      minProperties: 1
-      nullable: true
-      properties:
-        $is: {}
-        $is_not: {}
-        $in: {}
-        $not_in: {}
-      title: SpendingReportFilterCardDefinitionIdConditionsConditions
       type: object
     TiersReportFilterTierIdConditionsConditions:
       additionalProperties: false

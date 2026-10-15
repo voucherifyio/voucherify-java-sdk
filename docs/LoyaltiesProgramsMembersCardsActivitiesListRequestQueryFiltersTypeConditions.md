@@ -7,10 +7,10 @@
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**$is** | [**IsEnum**](#IsEnum) | Value equals. Single value or an array with exactly one value. |
-|**$isNot** | [**IsNotEnum**](#IsNotEnum) | Value does not equal. Single value or an array with exactly one value. |
-|**$in** | [**InEnum**](#InEnum) | Value is one of. Single value or an array of 1-10 values. |
-|**$notIn** | [**NotInEnum**](#NotInEnum) | Value is not one of. Single value or an array of 1-10 values. |
+|**$is** | [**IsEnum**](#IsEnum) | Matches one value. A string or a one-element array. |
+|**$isNot** | [**IsNotEnum**](#IsNotEnum) | Excludes one value. A string or a one-element array. |
+|**$in** | [**InEnum**](#InEnum) | Matches any of the values. A string or an array of 1 to 10 values. |
+|**$notIn** | [**NotInEnum**](#NotInEnum) | Excludes any of the values. A string or an array of 1 to 10 values. |
 
 
 

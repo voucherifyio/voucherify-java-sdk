@@ -58,6 +58,16 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class Card {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+    private boolean idIsSet = false;
+
+  public static final String SERIALIZED_NAME_CARD_DEFINITION_ID = "card_definition_id";
+  @SerializedName(SERIALIZED_NAME_CARD_DEFINITION_ID)
+  private String cardDefinitionId;
+    private boolean cardDefinitionIdIsSet = false;
+
   /**
    * Card type. Currently only &#x60;INDIVIDUAL&#x60; is supported.
    */
@@ -108,6 +118,11 @@ public class Card {
   private CardTypeEnum cardType = CardTypeEnum.INDIVIDUAL;
     private boolean cardTypeIsSet = false;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+    private boolean codeIsSet = false;
+
   public static final String SERIALIZED_NAME_LIFETIME_BUCKET = "lifetime_bucket";
   @SerializedName(SERIALIZED_NAME_LIFETIME_BUCKET)
   private CardLifetimeBucket lifetimeBucket;
@@ -115,46 +130,6 @@ public class Card {
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private CardBalance balance;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-    private boolean idIsSet = false;
-
-  public static final String SERIALIZED_NAME_PROGRAM_ID = "program_id";
-  @SerializedName(SERIALIZED_NAME_PROGRAM_ID)
-  private String programId;
-    private boolean programIdIsSet = false;
-
-  public static final String SERIALIZED_NAME_CARD_DEFINITION_ID = "card_definition_id";
-  @SerializedName(SERIALIZED_NAME_CARD_DEFINITION_ID)
-  private String cardDefinitionId;
-    private boolean cardDefinitionIdIsSet = false;
-
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-    private boolean codeIsSet = false;
-
-  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
-  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
-  private String customerId;
-    private boolean customerIdIsSet = false;
-
-  public static final String SERIALIZED_NAME_MEMBER_ID = "member_id";
-  @SerializedName(SERIALIZED_NAME_MEMBER_ID)
-  private String memberId;
-    private boolean memberIdIsSet = false;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-    private boolean createdAtIsSet = false;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-    private boolean updatedAtIsSet = false;
 
   /**
    * Object type. Always &#x60;card&#x60;.
@@ -206,8 +181,85 @@ public class Card {
   private ObjectEnum _object = ObjectEnum.CARD;
     private boolean _objectIsSet = false;
 
+  public static final String SERIALIZED_NAME_PROGRAM_ID = "program_id";
+  @SerializedName(SERIALIZED_NAME_PROGRAM_ID)
+  private String programId;
+    private boolean programIdIsSet = false;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
+    private boolean customerIdIsSet = false;
+
+  public static final String SERIALIZED_NAME_MEMBER_ID = "member_id";
+  @SerializedName(SERIALIZED_NAME_MEMBER_ID)
+  private String memberId;
+    private boolean memberIdIsSet = false;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
+
   public Card() {
   }
+
+  public Card id(String id) {
+    
+    this.id = id;
+    this.idIsSet = true;
+    return this;
+  }
+
+   /**
+   * Identifies the card.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
+  }
+
+
+  public Card cardDefinitionId(String cardDefinitionId) {
+    
+    this.cardDefinitionId = cardDefinitionId;
+    this.cardDefinitionIdIsSet = true;
+    return this;
+  }
+
+   /**
+   * Identifies the card definition.
+   * @return cardDefinitionId
+  **/
+  @javax.annotation.Nullable
+  public String getCardDefinitionId() {
+    return cardDefinitionId;
+  }
+
+
+  public void setCardDefinitionId(String cardDefinitionId) {
+    this.cardDefinitionId = cardDefinitionId;
+    this.cardDefinitionIdIsSet = true;
+  }
+  public boolean isCardDefinitionIdSet() {
+    return cardDefinitionIdIsSet;
+  }
+
 
   public Card cardType(CardTypeEnum cardType) {
     
@@ -232,6 +284,32 @@ public class Card {
   }
   public boolean isCardTypeSet() {
     return cardTypeIsSet;
+  }
+
+
+  public Card code(String code) {
+    
+    this.code = code;
+    this.codeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
+    this.codeIsSet = true;
+  }
+  public boolean isCodeSet() {
+    return codeIsSet;
   }
 
 
@@ -279,29 +357,29 @@ public class Card {
   }
 
 
-  public Card id(String id) {
+  public Card _object(ObjectEnum _object) {
     
-    this.id = id;
-    this.idIsSet = true;
+    this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
    /**
-   * Identifies the card.
-   * @return id
+   * Object type. Always &#x60;card&#x60;.
+   * @return _object
   **/
   @javax.annotation.Nullable
-  public String getId() {
-    return id;
+  public ObjectEnum getObject() {
+    return _object;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
-    this.idIsSet = true;
+  public void setObject(ObjectEnum _object) {
+    this._object = _object;
+    this._objectIsSet = true;
   }
-  public boolean isIdSet() {
-    return idIsSet;
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -328,58 +406,6 @@ public class Card {
   }
   public boolean isProgramIdSet() {
     return programIdIsSet;
-  }
-
-
-  public Card cardDefinitionId(String cardDefinitionId) {
-    
-    this.cardDefinitionId = cardDefinitionId;
-    this.cardDefinitionIdIsSet = true;
-    return this;
-  }
-
-   /**
-   * Identifies the card definition.
-   * @return cardDefinitionId
-  **/
-  @javax.annotation.Nullable
-  public String getCardDefinitionId() {
-    return cardDefinitionId;
-  }
-
-
-  public void setCardDefinitionId(String cardDefinitionId) {
-    this.cardDefinitionId = cardDefinitionId;
-    this.cardDefinitionIdIsSet = true;
-  }
-  public boolean isCardDefinitionIdSet() {
-    return cardDefinitionIdIsSet;
-  }
-
-
-  public Card code(String code) {
-    
-    this.code = code;
-    this.codeIsSet = true;
-    return this;
-  }
-
-   /**
-   * Human-readable card code. &#x60;null&#x60; until asynchronous code generation finishes.
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-
-  public void setCode(String code) {
-    this.code = code;
-    this.codeIsSet = true;
-  }
-  public boolean isCodeSet() {
-    return codeIsSet;
   }
 
 
@@ -487,32 +513,6 @@ public class Card {
   }
 
 
-  public Card _object(ObjectEnum _object) {
-    
-    this._object = _object;
-    this._objectIsSet = true;
-    return this;
-  }
-
-   /**
-   * Object type. Always &#x60;card&#x60;.
-   * @return _object
-  **/
-  @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
-  }
-
-
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
-    this._objectIsSet = true;
-  }
-  public boolean isObjectSet() {
-    return _objectIsSet;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -523,18 +523,18 @@ public class Card {
       return false;
     }
     Card card = (Card) o;
-    return Objects.equals(this.cardType, card.cardType) &&
+    return Objects.equals(this.id, card.id) &&
+        Objects.equals(this.cardDefinitionId, card.cardDefinitionId) &&
+        Objects.equals(this.cardType, card.cardType) &&
+        Objects.equals(this.code, card.code) &&
         Objects.equals(this.lifetimeBucket, card.lifetimeBucket) &&
         Objects.equals(this.balance, card.balance) &&
-        Objects.equals(this.id, card.id) &&
+        Objects.equals(this._object, card._object) &&
         Objects.equals(this.programId, card.programId) &&
-        Objects.equals(this.cardDefinitionId, card.cardDefinitionId) &&
-        Objects.equals(this.code, card.code) &&
         Objects.equals(this.customerId, card.customerId) &&
         Objects.equals(this.memberId, card.memberId) &&
         Objects.equals(this.createdAt, card.createdAt) &&
-        Objects.equals(this.updatedAt, card.updatedAt) &&
-        Objects.equals(this._object, card._object);
+        Objects.equals(this.updatedAt, card.updatedAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -543,7 +543,7 @@ public class Card {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardType, lifetimeBucket, balance, id, programId, cardDefinitionId, code, customerId, memberId, createdAt, updatedAt, _object);
+    return Objects.hash(id, cardDefinitionId, cardType, code, lifetimeBucket, balance, _object, programId, customerId, memberId, createdAt, updatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -557,18 +557,18 @@ public class Card {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Card {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    cardDefinitionId: ").append(toIndentedString(cardDefinitionId)).append("\n");
     sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    lifetimeBucket: ").append(toIndentedString(lifetimeBucket)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
-    sb.append("    cardDefinitionId: ").append(toIndentedString(cardDefinitionId)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    memberId: ").append(toIndentedString(memberId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -591,18 +591,18 @@ public class Card {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("card_definition_id");
     openapiFields.add("card_type");
+    openapiFields.add("code");
     openapiFields.add("lifetime_bucket");
     openapiFields.add("balance");
-    openapiFields.add("id");
+    openapiFields.add("object");
     openapiFields.add("program_id");
-    openapiFields.add("card_definition_id");
-    openapiFields.add("code");
     openapiFields.add("customer_id");
     openapiFields.add("member_id");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
-    openapiFields.add("object");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

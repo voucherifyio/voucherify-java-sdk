@@ -12,7 +12,7 @@ Response body schema for **GET** `v1/customers/{customerId}`.
 |**sourceId** | **String** | A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored. |
 |**summary** | [**CustomerSummary**](CustomerSummary.md) |  |
 |**loyalty** | [**CustomerLoyalty**](CustomerLoyalty.md) |  |
-|**loyaltyMemberships** | [**List&lt;CustomerLoyaltyMembership&gt;**](CustomerLoyaltyMembership.md) | List of Loyalty v2 program memberships for the customer. &#x60;null&#x60; when no memberships are stored. |
+|**loyaltyMemberships** | [**List&lt;CustomerLoyaltyMembership&gt;**](CustomerLoyaltyMembership.md) | List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events. |
 |**referrals** | [**CustomerReferrals**](CustomerReferrals.md) |  |
 |**systemMetadata** | **Object** | Object used to store system metadata information. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format. |

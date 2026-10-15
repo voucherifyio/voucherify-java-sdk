@@ -19,10 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ReportCardDefinitionIdFilterConditions;
 import io.voucherify.client.model.RewardsReportFilterRewardIdConditions;
 import io.voucherify.client.model.RewardsSpendingsReportFilterCostIdConditions;
 import io.voucherify.client.model.RewardsSpendingsReportFilterSpendingIdConditions;
-import io.voucherify.client.model.SpendingReportFilterCardDefinitionIdConditions;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -60,7 +60,7 @@ import io.voucherify.client.JSON;
 
 public class RewardsSpendingsReportListFilters {
   /**
-   * Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    */
   @JsonAdapter(JunctionEnum.Adapter.class)
   public enum JunctionEnum {
@@ -117,7 +117,7 @@ public class RewardsSpendingsReportListFilters {
 
   public static final String SERIALIZED_NAME_CARD_DEFINITION_ID = "card_definition_id";
   @SerializedName(SERIALIZED_NAME_CARD_DEFINITION_ID)
-  private SpendingReportFilterCardDefinitionIdConditions cardDefinitionId;
+  private ReportCardDefinitionIdFilterConditions cardDefinitionId;
 
   public static final String SERIALIZED_NAME_COST_ID = "cost_id";
   @SerializedName(SERIALIZED_NAME_COST_ID)
@@ -138,7 +138,7 @@ public class RewardsSpendingsReportListFilters {
   }
 
    /**
-   * Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    * @return junction
   **/
   @javax.annotation.Nullable
@@ -178,7 +178,7 @@ public class RewardsSpendingsReportListFilters {
   }
 
 
-  public RewardsSpendingsReportListFilters cardDefinitionId(SpendingReportFilterCardDefinitionIdConditions cardDefinitionId) {
+  public RewardsSpendingsReportListFilters cardDefinitionId(ReportCardDefinitionIdFilterConditions cardDefinitionId) {
     
     this.cardDefinitionId = cardDefinitionId;
     
@@ -190,12 +190,12 @@ public class RewardsSpendingsReportListFilters {
    * @return cardDefinitionId
   **/
   @javax.annotation.Nullable
-  public SpendingReportFilterCardDefinitionIdConditions getCardDefinitionId() {
+  public ReportCardDefinitionIdFilterConditions getCardDefinitionId() {
     return cardDefinitionId;
   }
 
 
-  public void setCardDefinitionId(SpendingReportFilterCardDefinitionIdConditions cardDefinitionId) {
+  public void setCardDefinitionId(ReportCardDefinitionIdFilterConditions cardDefinitionId) {
     this.cardDefinitionId = cardDefinitionId;
   }
 

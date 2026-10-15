@@ -37,7 +37,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     Lv2EarningRulesApi apiInstance = new Lv2EarningRulesApi(defaultClient);
-    String earningRuleId = "earningRuleId_example"; // String | Earning rule ID.
+    String earningRuleId = "earningRuleId_example"; // String | Identifies the earning rule. Format lern_[a-f0-9]+.
     try {
       V2LoyaltiesEarningRulesGetResponseBody result = apiInstance.getEarningRule(earningRuleId);
       System.out.println(result);
@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **earningRuleId** | **String**| Earning rule ID. |
+| **earningRuleId** | **String**| Identifies the earning rule. Format lern_[a-f0-9]+. |
 
 ### Return type
 

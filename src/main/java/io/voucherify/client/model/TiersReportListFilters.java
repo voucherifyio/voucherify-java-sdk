@@ -58,7 +58,7 @@ import io.voucherify.client.JSON;
 
 public class TiersReportListFilters {
   /**
-   * Joins the field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    */
   @JsonAdapter(JunctionEnum.Adapter.class)
   public enum JunctionEnum {
@@ -128,7 +128,7 @@ public class TiersReportListFilters {
   }
 
    /**
-   * Joins the field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+   * Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
    * @return junction
   **/
   @javax.annotation.Nullable

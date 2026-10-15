@@ -37,7 +37,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     Lv2RewardsApi apiInstance = new Lv2RewardsApi(defaultClient);
-    String rewardId = "rewardId_example"; // String | Unique reward identifier, prefixed with lrew_.
+    String rewardId = "rewardId_example"; // String | Identifies the reward. Format lrew_[a-f0-9]+.
     try {
       V2LoyaltiesRewardsGetResponseBody result = apiInstance.getReward(rewardId);
       System.out.println(result);
@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **rewardId** | **String**| Unique reward identifier, prefixed with lrew_. |
+| **rewardId** | **String**| Identifies the reward. Format lrew_[a-f0-9]+. |
 
 ### Return type
 

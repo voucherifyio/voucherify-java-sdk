@@ -74,7 +74,7 @@ public class Lv2BenefitsApi {
 
     /**
      * Build call for getBenefit
-     * @param benefitId Unique benefit ID, prefixed with lben_. (required)
+     * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -138,7 +138,7 @@ public class Lv2BenefitsApi {
     /**
      * Get benefit
      * Returns a single benefit by its ID.
-     * @param benefitId Unique benefit ID, prefixed with lben_. (required)
+     * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @return V2LoyaltiesBenefitsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -150,7 +150,7 @@ public class Lv2BenefitsApi {
     /**
      * Get benefit
      * Returns a single benefit by its ID.
-     * @param benefitId Unique benefit ID, prefixed with lben_. (required)
+     * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @return ApiResponse&lt;V2LoyaltiesBenefitsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -163,7 +163,7 @@ public class Lv2BenefitsApi {
     /**
      * Get benefit (asynchronously)
      * Returns a single benefit by its ID.
-     * @param benefitId Unique benefit ID, prefixed with lben_. (required)
+     * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

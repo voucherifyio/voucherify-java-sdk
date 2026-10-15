@@ -317,7 +317,7 @@ public class CustomersUpdateResponseBody {
   }
 
    /**
-   * List of Loyalty v2 program memberships for the customer. &#x60;null&#x60; when no memberships are stored.
+   * List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events.
    * @return loyaltyMemberships
   **/
   @javax.annotation.Nullable

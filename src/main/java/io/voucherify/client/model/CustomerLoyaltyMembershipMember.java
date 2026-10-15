@@ -62,7 +62,7 @@ public class CustomerLoyaltyMembershipMember {
     private boolean idIsSet = false;
 
   /**
-   * Member status.
+   * Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -162,7 +162,7 @@ public class CustomerLoyaltyMembershipMember {
   }
 
    /**
-   * Member status.
+   * Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
    * @return status
   **/
   @javax.annotation.Nullable

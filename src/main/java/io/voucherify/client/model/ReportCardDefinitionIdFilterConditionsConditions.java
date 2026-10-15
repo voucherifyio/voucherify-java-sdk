@@ -50,11 +50,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * SpendingReportFilterCardDefinitionIdConditionsConditions
+ * ReportCardDefinitionIdFilterConditionsConditions
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class SpendingReportFilterCardDefinitionIdConditionsConditions {
+public class ReportCardDefinitionIdFilterConditionsConditions {
   public static final String SERIALIZED_NAME_$_IS = "$is";
   @SerializedName(SERIALIZED_NAME_$_IS)
   private Object $is = null;
@@ -75,10 +75,10 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
   private Object $notIn = null;
     private boolean $notInIsSet = false;
 
-  public SpendingReportFilterCardDefinitionIdConditionsConditions() {
+  public ReportCardDefinitionIdFilterConditionsConditions() {
   }
 
-  public SpendingReportFilterCardDefinitionIdConditionsConditions $is(Object $is) {
+  public ReportCardDefinitionIdFilterConditionsConditions $is(Object $is) {
     
     this.$is = $is;
     this.$isIsSet = true;
@@ -104,7 +104,7 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
   }
 
 
-  public SpendingReportFilterCardDefinitionIdConditionsConditions $isNot(Object $isNot) {
+  public ReportCardDefinitionIdFilterConditionsConditions $isNot(Object $isNot) {
     
     this.$isNot = $isNot;
     this.$isNotIsSet = true;
@@ -130,7 +130,7 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
   }
 
 
-  public SpendingReportFilterCardDefinitionIdConditionsConditions $in(Object $in) {
+  public ReportCardDefinitionIdFilterConditionsConditions $in(Object $in) {
     
     this.$in = $in;
     this.$inIsSet = true;
@@ -156,7 +156,7 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
   }
 
 
-  public SpendingReportFilterCardDefinitionIdConditionsConditions $notIn(Object $notIn) {
+  public ReportCardDefinitionIdFilterConditionsConditions $notIn(Object $notIn) {
     
     this.$notIn = $notIn;
     this.$notInIsSet = true;
@@ -191,11 +191,11 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SpendingReportFilterCardDefinitionIdConditionsConditions spendingReportFilterCardDefinitionIdConditionsConditions = (SpendingReportFilterCardDefinitionIdConditionsConditions) o;
-    return Objects.equals(this.$is, spendingReportFilterCardDefinitionIdConditionsConditions.$is) &&
-        Objects.equals(this.$isNot, spendingReportFilterCardDefinitionIdConditionsConditions.$isNot) &&
-        Objects.equals(this.$in, spendingReportFilterCardDefinitionIdConditionsConditions.$in) &&
-        Objects.equals(this.$notIn, spendingReportFilterCardDefinitionIdConditionsConditions.$notIn);
+    ReportCardDefinitionIdFilterConditionsConditions reportCardDefinitionIdFilterConditionsConditions = (ReportCardDefinitionIdFilterConditionsConditions) o;
+    return Objects.equals(this.$is, reportCardDefinitionIdFilterConditionsConditions.$is) &&
+        Objects.equals(this.$isNot, reportCardDefinitionIdFilterConditionsConditions.$isNot) &&
+        Objects.equals(this.$in, reportCardDefinitionIdFilterConditionsConditions.$in) &&
+        Objects.equals(this.$notIn, reportCardDefinitionIdFilterConditionsConditions.$notIn);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -217,7 +217,7 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SpendingReportFilterCardDefinitionIdConditionsConditions {\n");
+    sb.append("class ReportCardDefinitionIdFilterConditionsConditions {\n");
     sb.append("    $is: ").append(toIndentedString($is)).append("\n");
     sb.append("    $isNot: ").append(toIndentedString($isNot)).append("\n");
     sb.append("    $in: ").append(toIndentedString($in)).append("\n");
@@ -257,27 +257,27 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SpendingReportFilterCardDefinitionIdConditionsConditions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SpendingReportFilterCardDefinitionIdConditionsConditions' and its subtypes
+       if (!ReportCardDefinitionIdFilterConditionsConditions.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ReportCardDefinitionIdFilterConditionsConditions' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SpendingReportFilterCardDefinitionIdConditionsConditions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SpendingReportFilterCardDefinitionIdConditionsConditions.class));
+       final TypeAdapter<ReportCardDefinitionIdFilterConditionsConditions> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ReportCardDefinitionIdFilterConditionsConditions.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SpendingReportFilterCardDefinitionIdConditionsConditions>() {
+       return (TypeAdapter<T>) new TypeAdapter<ReportCardDefinitionIdFilterConditionsConditions>() {
            @Override
-           public void write(JsonWriter out, SpendingReportFilterCardDefinitionIdConditionsConditions value) throws IOException {
+           public void write(JsonWriter out, ReportCardDefinitionIdFilterConditionsConditions value) throws IOException {
             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
 
             // 1. Strip all nulls and internal "isSet" markers
             obj.entrySet().removeIf(entry -> entry.getValue().isJsonNull() || entry.getKey().endsWith("IsSet"));
 
             // 2. Add back explicitly set nulls using reflection
-            for (Field field : SpendingReportFilterCardDefinitionIdConditionsConditions.class.getDeclaredFields()) {
+            for (Field field : ReportCardDefinitionIdFilterConditionsConditions.class.getDeclaredFields()) {
               String fieldName = field.getName();
               if (fieldName.endsWith("IsSet")) continue;
               try {
-                Field isSetField = SpendingReportFilterCardDefinitionIdConditionsConditions.class.getDeclaredField(fieldName + "IsSet");
+                Field isSetField = ReportCardDefinitionIdFilterConditionsConditions.class.getDeclaredField(fieldName + "IsSet");
                 isSetField.setAccessible(true);
                 boolean isSet = (boolean) isSetField.get(value);
 
@@ -300,7 +300,7 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
            }
 
            @Override
-           public SpendingReportFilterCardDefinitionIdConditionsConditions read(JsonReader in) throws IOException {
+           public ReportCardDefinitionIdFilterConditionsConditions read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              return thisAdapter.fromJsonTree(jsonElement);
            }
@@ -310,18 +310,18 @@ public class SpendingReportFilterCardDefinitionIdConditionsConditions {
   }
 
  /**
-  * Create an instance of SpendingReportFilterCardDefinitionIdConditionsConditions given an JSON string
+  * Create an instance of ReportCardDefinitionIdFilterConditionsConditions given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SpendingReportFilterCardDefinitionIdConditionsConditions
-  * @throws IOException if the JSON string is invalid with respect to SpendingReportFilterCardDefinitionIdConditionsConditions
+  * @return An instance of ReportCardDefinitionIdFilterConditionsConditions
+  * @throws IOException if the JSON string is invalid with respect to ReportCardDefinitionIdFilterConditionsConditions
   */
-  public static SpendingReportFilterCardDefinitionIdConditionsConditions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SpendingReportFilterCardDefinitionIdConditionsConditions.class);
+  public static ReportCardDefinitionIdFilterConditionsConditions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ReportCardDefinitionIdFilterConditionsConditions.class);
   }
 
  /**
-  * Convert an instance of SpendingReportFilterCardDefinitionIdConditionsConditions to an JSON string
+  * Convert an instance of ReportCardDefinitionIdFilterConditionsConditions to an JSON string
   *
   * @return JSON string
   */

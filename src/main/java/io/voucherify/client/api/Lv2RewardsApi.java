@@ -74,7 +74,7 @@ public class Lv2RewardsApi {
 
     /**
      * Build call for getReward
-     * @param rewardId Unique reward identifier, prefixed with lrew_. (required)
+     * @param rewardId Identifies the reward. Format lrew_[a-f0-9]+. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -138,7 +138,7 @@ public class Lv2RewardsApi {
     /**
      * Get reward by ID
      * Returns a single reward by its ID.
-     * @param rewardId Unique reward identifier, prefixed with lrew_. (required)
+     * @param rewardId Identifies the reward. Format lrew_[a-f0-9]+. (required)
      * @return V2LoyaltiesRewardsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -150,7 +150,7 @@ public class Lv2RewardsApi {
     /**
      * Get reward by ID
      * Returns a single reward by its ID.
-     * @param rewardId Unique reward identifier, prefixed with lrew_. (required)
+     * @param rewardId Identifies the reward. Format lrew_[a-f0-9]+. (required)
      * @return ApiResponse&lt;V2LoyaltiesRewardsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -163,7 +163,7 @@ public class Lv2RewardsApi {
     /**
      * Get reward by ID (asynchronously)
      * Returns a single reward by its ID.
-     * @param rewardId Unique reward identifier, prefixed with lrew_. (required)
+     * @param rewardId Identifies the reward. Format lrew_[a-f0-9]+. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -37,7 +37,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     Lv2BenefitsApi apiInstance = new Lv2BenefitsApi(defaultClient);
-    String benefitId = "benefitId_example"; // String | Unique benefit ID, prefixed with lben_.
+    String benefitId = "benefitId_example"; // String | Identifies the benefit. Format lben_[a-f0-9]+.
     try {
       V2LoyaltiesBenefitsGetResponseBody result = apiInstance.getBenefit(benefitId);
       System.out.println(result);
@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **benefitId** | **String**| Unique benefit ID, prefixed with lben_. |
+| **benefitId** | **String**| Identifies the benefit. Format lben_[a-f0-9]+. |
 
 ### Return type
 

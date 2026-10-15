@@ -12,10 +12,10 @@ A pending point bucket of a card.
 |**cardDefinitionId** | **String** | ID of the card definition of the card. |
 |**programId** | **String** | ID of the loyalty program. |
 |**memberId** | **String** | ID of the member owning the card. |
+|**cardType** | [**CardTypeEnum**](#CardTypeEnum) | Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported. |
 |**createdAt** | **OffsetDateTime** | Timestamp when the bucket was created (ISO 8601). |
 |**updatedAt** | **OffsetDateTime** | Timestamp when the bucket was last updated (ISO 8601), or &#x60;null&#x60;. |
 |**id** | **String** | Unique pending point bucket ID. |
-|**cardType** | [**CardTypeEnum**](#CardTypeEnum) | Card type. |
 |**points** | [**CardPendingPointsBucketPoints**](CardPendingPointsBucketPoints.md) |  |
 |**date** | **LocalDate** | Scheduled activation date of the pending points (&#x60;YYYY-MM-DD&#x60;). For the &#x60;EVENT_BASED&#x60; type this is the cancellation deadline. |
 |**type** | [**TypeEnum**](#TypeEnum) | Pending points activation type from the card definition. |

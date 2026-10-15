@@ -59,6 +59,16 @@ import io.voucherify.client.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class CardSimple {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+    private boolean idIsSet = false;
+
+  public static final String SERIALIZED_NAME_CARD_DEFINITION_ID = "card_definition_id";
+  @SerializedName(SERIALIZED_NAME_CARD_DEFINITION_ID)
+  private String cardDefinitionId;
+    private boolean cardDefinitionIdIsSet = false;
+
   /**
    * Card type. Currently only &#x60;INDIVIDUAL&#x60; is supported.
    */
@@ -109,6 +119,11 @@ public class CardSimple {
   private CardTypeEnum cardType = CardTypeEnum.INDIVIDUAL;
     private boolean cardTypeIsSet = false;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+    private boolean codeIsSet = false;
+
   public static final String SERIALIZED_NAME_LIFETIME_BUCKET = "lifetime_bucket";
   @SerializedName(SERIALIZED_NAME_LIFETIME_BUCKET)
   private CardLifetimeBucket lifetimeBucket;
@@ -117,31 +132,8 @@ public class CardSimple {
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private CardBalance balance;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-    private boolean idIsSet = false;
-
-  public static final String SERIALIZED_NAME_CARD_DEFINITION_ID = "card_definition_id";
-  @SerializedName(SERIALIZED_NAME_CARD_DEFINITION_ID)
-  private String cardDefinitionId;
-    private boolean cardDefinitionIdIsSet = false;
-
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-    private boolean codeIsSet = false;
-
-  public static final String SERIALIZED_NAME_NEXT_EXPIRATION = "next_expiration";
-  @SerializedName(SERIALIZED_NAME_NEXT_EXPIRATION)
-  private CardNextExpiration nextExpiration;
-
-  public static final String SERIALIZED_NAME_NEXT_ACTIVATION = "next_activation";
-  @SerializedName(SERIALIZED_NAME_NEXT_ACTIVATION)
-  private CardNextActivation nextActivation;
-
   /**
-   * Object type marker, always &#x60;card&#x60;.
+   * Object type. Always &#x60;card&#x60;.
    */
   @JsonAdapter(ObjectEnum.Adapter.class)
   public enum ObjectEnum {
@@ -190,8 +182,68 @@ public class CardSimple {
   private ObjectEnum _object = ObjectEnum.CARD;
     private boolean _objectIsSet = false;
 
+  public static final String SERIALIZED_NAME_NEXT_EXPIRATION = "next_expiration";
+  @SerializedName(SERIALIZED_NAME_NEXT_EXPIRATION)
+  private CardNextExpiration nextExpiration;
+
+  public static final String SERIALIZED_NAME_NEXT_ACTIVATION = "next_activation";
+  @SerializedName(SERIALIZED_NAME_NEXT_ACTIVATION)
+  private CardNextActivation nextActivation;
+
   public CardSimple() {
   }
+
+  public CardSimple id(String id) {
+    
+    this.id = id;
+    this.idIsSet = true;
+    return this;
+  }
+
+   /**
+   * Identifies the card.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+    this.idIsSet = true;
+  }
+  public boolean isIdSet() {
+    return idIsSet;
+  }
+
+
+  public CardSimple cardDefinitionId(String cardDefinitionId) {
+    
+    this.cardDefinitionId = cardDefinitionId;
+    this.cardDefinitionIdIsSet = true;
+    return this;
+  }
+
+   /**
+   * Identifies the card definition.
+   * @return cardDefinitionId
+  **/
+  @javax.annotation.Nullable
+  public String getCardDefinitionId() {
+    return cardDefinitionId;
+  }
+
+
+  public void setCardDefinitionId(String cardDefinitionId) {
+    this.cardDefinitionId = cardDefinitionId;
+    this.cardDefinitionIdIsSet = true;
+  }
+  public boolean isCardDefinitionIdSet() {
+    return cardDefinitionIdIsSet;
+  }
+
 
   public CardSimple cardType(CardTypeEnum cardType) {
     
@@ -216,6 +268,32 @@ public class CardSimple {
   }
   public boolean isCardTypeSet() {
     return cardTypeIsSet;
+  }
+
+
+  public CardSimple code(String code) {
+    
+    this.code = code;
+    this.codeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
+    this.codeIsSet = true;
+  }
+  public boolean isCodeSet() {
+    return codeIsSet;
   }
 
 
@@ -263,81 +341,29 @@ public class CardSimple {
   }
 
 
-  public CardSimple id(String id) {
+  public CardSimple _object(ObjectEnum _object) {
     
-    this.id = id;
-    this.idIsSet = true;
+    this._object = _object;
+    this._objectIsSet = true;
     return this;
   }
 
    /**
-   * Unique Voucherify ID of the card.
-   * @return id
+   * Object type. Always &#x60;card&#x60;.
+   * @return _object
   **/
   @javax.annotation.Nullable
-  public String getId() {
-    return id;
+  public ObjectEnum getObject() {
+    return _object;
   }
 
 
-  public void setId(String id) {
-    this.id = id;
-    this.idIsSet = true;
+  public void setObject(ObjectEnum _object) {
+    this._object = _object;
+    this._objectIsSet = true;
   }
-  public boolean isIdSet() {
-    return idIsSet;
-  }
-
-
-  public CardSimple cardDefinitionId(String cardDefinitionId) {
-    
-    this.cardDefinitionId = cardDefinitionId;
-    this.cardDefinitionIdIsSet = true;
-    return this;
-  }
-
-   /**
-   * Unique Voucherify ID of the card definition the card was created from.
-   * @return cardDefinitionId
-  **/
-  @javax.annotation.Nullable
-  public String getCardDefinitionId() {
-    return cardDefinitionId;
-  }
-
-
-  public void setCardDefinitionId(String cardDefinitionId) {
-    this.cardDefinitionId = cardDefinitionId;
-    this.cardDefinitionIdIsSet = true;
-  }
-  public boolean isCardDefinitionIdSet() {
-    return cardDefinitionIdIsSet;
-  }
-
-
-  public CardSimple code(String code) {
-    
-    this.code = code;
-    this.codeIsSet = true;
-    return this;
-  }
-
-   /**
-   * Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-
-  public void setCode(String code) {
-    this.code = code;
-    this.codeIsSet = true;
-  }
-  public boolean isCodeSet() {
-    return codeIsSet;
+  public boolean isObjectSet() {
+    return _objectIsSet;
   }
 
 
@@ -385,32 +411,6 @@ public class CardSimple {
   }
 
 
-  public CardSimple _object(ObjectEnum _object) {
-    
-    this._object = _object;
-    this._objectIsSet = true;
-    return this;
-  }
-
-   /**
-   * Object type marker, always &#x60;card&#x60;.
-   * @return _object
-  **/
-  @javax.annotation.Nullable
-  public ObjectEnum getObject() {
-    return _object;
-  }
-
-
-  public void setObject(ObjectEnum _object) {
-    this._object = _object;
-    this._objectIsSet = true;
-  }
-  public boolean isObjectSet() {
-    return _objectIsSet;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -421,15 +421,15 @@ public class CardSimple {
       return false;
     }
     CardSimple cardSimple = (CardSimple) o;
-    return Objects.equals(this.cardType, cardSimple.cardType) &&
+    return Objects.equals(this.id, cardSimple.id) &&
+        Objects.equals(this.cardDefinitionId, cardSimple.cardDefinitionId) &&
+        Objects.equals(this.cardType, cardSimple.cardType) &&
+        Objects.equals(this.code, cardSimple.code) &&
         Objects.equals(this.lifetimeBucket, cardSimple.lifetimeBucket) &&
         Objects.equals(this.balance, cardSimple.balance) &&
-        Objects.equals(this.id, cardSimple.id) &&
-        Objects.equals(this.cardDefinitionId, cardSimple.cardDefinitionId) &&
-        Objects.equals(this.code, cardSimple.code) &&
+        Objects.equals(this._object, cardSimple._object) &&
         Objects.equals(this.nextExpiration, cardSimple.nextExpiration) &&
-        Objects.equals(this.nextActivation, cardSimple.nextActivation) &&
-        Objects.equals(this._object, cardSimple._object);
+        Objects.equals(this.nextActivation, cardSimple.nextActivation);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -438,7 +438,7 @@ public class CardSimple {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardType, lifetimeBucket, balance, id, cardDefinitionId, code, nextExpiration, nextActivation, _object);
+    return Objects.hash(id, cardDefinitionId, cardType, code, lifetimeBucket, balance, _object, nextExpiration, nextActivation);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -452,15 +452,15 @@ public class CardSimple {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardSimple {\n");
-    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
-    sb.append("    lifetimeBucket: ").append(toIndentedString(lifetimeBucket)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    cardDefinitionId: ").append(toIndentedString(cardDefinitionId)).append("\n");
+    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    lifetimeBucket: ").append(toIndentedString(lifetimeBucket)).append("\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("    nextExpiration: ").append(toIndentedString(nextExpiration)).append("\n");
     sb.append("    nextActivation: ").append(toIndentedString(nextActivation)).append("\n");
-    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -483,15 +483,15 @@ public class CardSimple {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("card_type");
-    openapiFields.add("lifetime_bucket");
-    openapiFields.add("balance");
     openapiFields.add("id");
     openapiFields.add("card_definition_id");
+    openapiFields.add("card_type");
     openapiFields.add("code");
+    openapiFields.add("lifetime_bucket");
+    openapiFields.add("balance");
+    openapiFields.add("object");
     openapiFields.add("next_expiration");
     openapiFields.add("next_activation");
-    openapiFields.add("object");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

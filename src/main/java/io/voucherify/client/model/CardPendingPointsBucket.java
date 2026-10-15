@@ -78,23 +78,8 @@ public class CardPendingPointsBucket {
   private String memberId;
     private boolean memberIdIsSet = false;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-    private boolean createdAtIsSet = false;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
-    private boolean updatedAtIsSet = false;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-    private boolean idIsSet = false;
-
   /**
-   * Card type.
+   * Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
    */
   @JsonAdapter(CardTypeEnum.Adapter.class)
   public enum CardTypeEnum {
@@ -142,6 +127,21 @@ public class CardPendingPointsBucket {
   @SerializedName(SERIALIZED_NAME_CARD_TYPE)
   private CardTypeEnum cardType = CardTypeEnum.INDIVIDUAL;
     private boolean cardTypeIsSet = false;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+    private boolean createdAtIsSet = false;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+    private boolean updatedAtIsSet = false;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+    private boolean idIsSet = false;
 
   public static final String SERIALIZED_NAME_POINTS = "points";
   @SerializedName(SERIALIZED_NAME_POINTS)
@@ -420,6 +420,32 @@ public class CardPendingPointsBucket {
   }
 
 
+  public CardPendingPointsBucket cardType(CardTypeEnum cardType) {
+    
+    this.cardType = cardType;
+    this.cardTypeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
+   * @return cardType
+  **/
+  @javax.annotation.Nullable
+  public CardTypeEnum getCardType() {
+    return cardType;
+  }
+
+
+  public void setCardType(CardTypeEnum cardType) {
+    this.cardType = cardType;
+    this.cardTypeIsSet = true;
+  }
+  public boolean isCardTypeSet() {
+    return cardTypeIsSet;
+  }
+
+
   public CardPendingPointsBucket createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -495,32 +521,6 @@ public class CardPendingPointsBucket {
   }
   public boolean isIdSet() {
     return idIsSet;
-  }
-
-
-  public CardPendingPointsBucket cardType(CardTypeEnum cardType) {
-    
-    this.cardType = cardType;
-    this.cardTypeIsSet = true;
-    return this;
-  }
-
-   /**
-   * Card type.
-   * @return cardType
-  **/
-  @javax.annotation.Nullable
-  public CardTypeEnum getCardType() {
-    return cardType;
-  }
-
-
-  public void setCardType(CardTypeEnum cardType) {
-    this.cardType = cardType;
-    this.cardTypeIsSet = true;
-  }
-  public boolean isCardTypeSet() {
-    return cardTypeIsSet;
   }
 
 
@@ -668,10 +668,10 @@ public class CardPendingPointsBucket {
         Objects.equals(this.cardDefinitionId, cardPendingPointsBucket.cardDefinitionId) &&
         Objects.equals(this.programId, cardPendingPointsBucket.programId) &&
         Objects.equals(this.memberId, cardPendingPointsBucket.memberId) &&
+        Objects.equals(this.cardType, cardPendingPointsBucket.cardType) &&
         Objects.equals(this.createdAt, cardPendingPointsBucket.createdAt) &&
         Objects.equals(this.updatedAt, cardPendingPointsBucket.updatedAt) &&
         Objects.equals(this.id, cardPendingPointsBucket.id) &&
-        Objects.equals(this.cardType, cardPendingPointsBucket.cardType) &&
         Objects.equals(this.points, cardPendingPointsBucket.points) &&
         Objects.equals(this.date, cardPendingPointsBucket.date) &&
         Objects.equals(this.type, cardPendingPointsBucket.type) &&
@@ -685,7 +685,7 @@ public class CardPendingPointsBucket {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardId, cardDefinitionId, programId, memberId, createdAt, updatedAt, id, cardType, points, date, type, status, _object);
+    return Objects.hash(cardId, cardDefinitionId, programId, memberId, cardType, createdAt, updatedAt, id, points, date, type, status, _object);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -703,10 +703,10 @@ public class CardPendingPointsBucket {
     sb.append("    cardDefinitionId: ").append(toIndentedString(cardDefinitionId)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    memberId: ").append(toIndentedString(memberId)).append("\n");
+    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -738,10 +738,10 @@ public class CardPendingPointsBucket {
     openapiFields.add("card_definition_id");
     openapiFields.add("program_id");
     openapiFields.add("member_id");
+    openapiFields.add("card_type");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
     openapiFields.add("id");
-    openapiFields.add("card_type");
     openapiFields.add("points");
     openapiFields.add("date");
     openapiFields.add("type");
