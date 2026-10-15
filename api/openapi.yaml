@@ -129432,12 +129432,10 @@ components:
           pattern: "^lmbr_[a-f0-9]+$"
           type: string
         status:
-          description: Member status. List responses include only ACTIVE memberships.
-            INACTIVE and DELETED remain so existing SDK callers keep compiling.
+          default: ACTIVE
+          description: Member status. The value is `ACTIVE`.
           enum:
           - ACTIVE
-          - INACTIVE
-          - DELETED
           nullable: true
           type: string
         created_at:

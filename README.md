@@ -247,7 +247,7 @@ ADDED:
 - Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under `/v2/loyalties`.
 - `loyalty_memberships` on customer summary models.
 - Optional `filters` query parameter on list customers.
-- Customer loyalty membership responses list only `ACTIVE` memberships. The status enum still includes `INACTIVE` and `DELETED`.
+- Customer loyalty membership responses list only `ACTIVE` memberships.
 - **2026-08-26** - `17.0.5`
 FIXED:
 - `exchange_ratio` on COIN reward models is `BigDecimal` (create/update request models were `String`, redemption result was `Integer`). `getExchangeRatio()` and `setExchangeRatio()` changed with that type, so update call sites. The API returns fractional values such as `0.01`.

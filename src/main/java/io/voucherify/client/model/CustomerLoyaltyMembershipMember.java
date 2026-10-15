@@ -62,15 +62,11 @@ public class CustomerLoyaltyMembershipMember {
     private boolean idIsSet = false;
 
   /**
-   * Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
+   * Member status. The value is &#x60;ACTIVE&#x60;.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    ACTIVE("ACTIVE"),
-    
-    INACTIVE("INACTIVE"),
-    
-    DELETED("DELETED");
+    ACTIVE("ACTIVE");
 
     private String value;
 
@@ -112,7 +108,7 @@ public class CustomerLoyaltyMembershipMember {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
+  private StatusEnum status = StatusEnum.ACTIVE;
     private boolean statusIsSet = false;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
@@ -162,7 +158,7 @@ public class CustomerLoyaltyMembershipMember {
   }
 
    /**
-   * Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
+   * Member status. The value is &#x60;ACTIVE&#x60;.
    * @return status
   **/
   @javax.annotation.Nullable
