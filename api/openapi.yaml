@@ -19977,16 +19977,6 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterDate'
         style: form
-      - description: "Filters customers by field conditions. Read [Advanced filters\
-          \ for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources)\
-          \ for examples."
-        explode: true
-        in: query
-        name: filters
-        required: false
-        schema:
-          type: object
-        style: deepObject
       responses:
         "200":
           content:
