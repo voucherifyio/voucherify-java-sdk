@@ -2,7 +2,7 @@
 
 # EarningRuleTrigger
 
-Event that triggers the earning rule. Depending on `event`, either `custom_event` or `segment` is required and the other trigger contexts must be null/absent. The API validates field combinations that this schema does not express.
+Event that triggers the earning rule. Depending on `event`, either `custom_event` or `segment` is required and the other trigger contexts must be `null`/absent. The API validates field combinations that this schema does not express.
 
 ## Properties
 

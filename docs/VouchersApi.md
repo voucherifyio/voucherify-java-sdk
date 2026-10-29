@@ -820,7 +820,7 @@ public class Example {
 
 Release Validation Session
 
-Manually release a validation session that has been set up for the voucher. This method undoes the actions that are explained in the [Locking validation session](/guides/locking-validation-session) guide.  &lt;Note&gt; &lt;Badge color blue&gt;Release session in the Dashboard&lt;/Badge&gt; You can also use the [Validations Manager](/optimize/validations-and-redemptions#sessions) in the Dashboard to unlock sessions. &lt;/Note&gt;
+Manually release the validation session lock for the voucher in the path. This undoes the lock described in the [Locking validation session](/guides/locking-validation-session) guide for that voucher only. If several redeemables were locked with the same session key (for example in a stackable validation), this call removes the lock for the path voucher only. Other redeemables that still use the same session key stay locked. A session-released event is recorded only for the unlocked voucher, and only when a lock was actually removed. Calling this endpoint again when the voucher no longer has that session lock still returns 204 and does not create another session-released event. &lt;Note&gt; &lt;Badge color blue&gt;Release session in the Dashboard&lt;/Badge&gt; On a redeemables details **Validations** tab, **Release session** unlocks only that redeemable (same scope as this endpoint). To unlock the session for every redeemable that still holds the key, use **Redemptions** &gt; **Sessions**. See [Validations and redemptions](/optimize/validations-and-redemptions#sessions). &lt;/Note&gt;
 
 ### Example
 ```java
@@ -882,7 +882,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Returns no content if the validation session was released successfully. |  -  |
+| **204** | Returns no content when the request succeeds. This includes cases where the lock for this voucher was released, and cases where there was no remaining lock for this voucher and session key (for example the lock was already released or only other redeemables still hold the session). In the latter case, no new session-released event is created. |  -  |
 
 <a id="updateVoucher"></a>
 # **updateVoucher**
