@@ -53,7 +53,8 @@ public final class LoyaltyV2Http {
         try {
             response = HTTP.send(builder.build(), HttpResponse.BodyHandlers.ofString());
         } catch (Exception e) {
-            throw new LoyaltyV2HttpException(0, "HTTP transport failed: " + e.getMessage(), null);
+            String detail = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
+            throw new LoyaltyV2HttpException(0, "HTTP transport failed: " + detail, null);
         }
 
         JsonElement data = parseBody(response.body());
