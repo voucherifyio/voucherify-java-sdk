@@ -244,8 +244,7 @@ Authorization schemes defined for the API.
 ## 📅 Changelog
 - **2026-10-14** - `17.1.0`
 ADDED:
-- Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under `/v2/loyalties`.
-- JUnit e2e coverage for Loyalty v2 member and runtime flows, with HTTP setup for admin endpoints that are not in the SDK.
+- Loyalty v2 methods under `/v2/loyalties`: member create, update, delete, activate, and deactivate; card point adjustments; order payments; reward purchase and refund; plus memberships, cards, benefits, earning rules, rewards, examine, and reports.
 - `loyalty_memberships` on customer summary models.
 - Customer loyalty membership responses list only `ACTIVE` memberships.
 - **2026-08-26** - `17.0.5`
