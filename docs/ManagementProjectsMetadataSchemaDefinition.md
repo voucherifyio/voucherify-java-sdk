@@ -16,7 +16,7 @@ Custom definition name. This is also shown in **Project Settings** > **Metadata 
 |**minLength** | **Integer** | Value indicating the minimum length. Available only for the &#x60;string&#x60; type. |
 |**maxLength** | **Integer** | Value indicating the maximum length. Available only for the &#x60;string&#x60; type. |
 |**exactLength** | **Integer** | Value indicating the exact length. Available only for the &#x60;string&#x60; type. |
-|**eq** | **List&lt;Object&gt;** |  |
+|**eq** | **List&lt;Object&gt;** | Array of values that are allowed. Available only for the &#x60;string&#x60; and &#x60;number&#x60; types. |
 |**ne** | **List&lt;BigDecimal&gt;** | Array of values that are not allowed. Available only for the &#x60;number&#x60; type. |
 |**lt** | **BigDecimal** | A property of the &#x60;number&#x60; type must have &#x60;less than&#x60; this value. The value should be up to two decimal places. |
 |**lte** | **BigDecimal** | A property of the &#x60;number&#x60; type must be &#x60;less than or equal&#x60; to this value. The value should be up to two decimal places. |

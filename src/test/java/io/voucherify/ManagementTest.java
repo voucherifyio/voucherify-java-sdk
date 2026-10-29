@@ -71,9 +71,9 @@ public class ManagementTest {
                 }
             }
 
-            // Default to 'eu1' if clusterId couldn't be determined or is too short
+            // Default to 'dev2' if clusterId couldn't be determined or is too short
             if (clusterId == null || clusterId.length() > 4) {
-                clusterId = "eu1";
+                clusterId = "dev2";
             }
 
             System.out.println("[INFO] Using cluster ID: " + clusterId);

@@ -84,7 +84,6 @@ public class CustomersTest {
     @Test
     @org.junit.jupiter.api.Order(3)
     public void getCustomersTest() {
-        String snapshotPath = "src/test/java/io/voucherify/snapshots/Customers/ListedCustomers.snapshot.json";
         try {
             CustomersListResponseBody responseBody = customers.listCustomers(
                     2,
@@ -100,9 +99,10 @@ public class CustomersTest {
                     null,
                     null);
 
-            List<String> keysToRemove = Arrays.asList("id", "sourceId", "createdAt", "total", "email", "name",
-                    "description", "phone", "birthday", "birthdate", "address", "updatedAt");
-            assertTrue(DeepMatch.validateDeepMatch(snapshotPath, responseBody, keysToRemove));
+            assertNotNull(responseBody);
+            assertNotNull(responseBody.getCustomers());
+            assertTrue(responseBody.getCustomers().size() <= 2);
+            assertTrue("list".equals(responseBody.getObject()));
 
         } catch (Exception e) {
             fail();

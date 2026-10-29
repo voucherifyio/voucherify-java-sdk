@@ -149,7 +149,7 @@ public class ProductCollectionsProductsListResponseBody {
   }
 
    /**
-   * Get data
+   * A dictionary that contains an array of products and SKUs.
    * @return data
   **/
   @javax.annotation.Nullable
