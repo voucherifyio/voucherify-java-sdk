@@ -141,7 +141,7 @@ public class InapplicableTo {
 
   public static final String SERIALIZED_NAME_PRICE_FORMULA = "price_formula";
   @SerializedName(SERIALIZED_NAME_PRICE_FORMULA)
-  private BigDecimal priceFormula;
+  private String priceFormula;
     private boolean priceFormulaIsSet = false;
 
   public static final String SERIALIZED_NAME_EFFECT = "effect";
@@ -479,7 +479,7 @@ public class InapplicableTo {
   }
 
 
-  public InapplicableTo priceFormula(BigDecimal priceFormula) {
+  public InapplicableTo priceFormula(String priceFormula) {
     
     this.priceFormula = priceFormula;
     this.priceFormulaIsSet = true;
@@ -491,12 +491,12 @@ public class InapplicableTo {
    * @return priceFormula
   **/
   @javax.annotation.Nullable
-  public BigDecimal getPriceFormula() {
+  public String getPriceFormula() {
     return priceFormula;
   }
 
 
-  public void setPriceFormula(BigDecimal priceFormula) {
+  public void setPriceFormula(String priceFormula) {
     this.priceFormula = priceFormula;
     this.priceFormulaIsSet = true;
   }

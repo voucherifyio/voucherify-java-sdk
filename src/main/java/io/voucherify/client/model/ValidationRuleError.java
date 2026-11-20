@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.voucherify.client.model.ValidationRuleErrorLibrary;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Contains the error message returned from API when validation / redemption fails to meet requirements of defined rules.
+ * Defines the custom error returned when validation or redemption fails this rule. Use legacy &#x60;message&#x60;, &#x60;mode: MESSAGES&#x60; with per-language &#x60;messages&#x60;, or &#x60;mode: LIBRARY&#x60; with a library &#x60;key&#x60;. &#x60;MESSAGES&#x60; and &#x60;LIBRARY&#x60; are mutually exclusive. At validation or redemption time the API resolves this object to a single &#x60;{ message }&#x60; using &#x60;options.language&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -59,6 +62,67 @@ public class ValidationRuleError {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
     private boolean messageIsSet = false;
+
+  /**
+   * Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
+   */
+  @JsonAdapter(ModeEnum.Adapter.class)
+  public enum ModeEnum {
+    MESSAGES("MESSAGES"),
+    
+    LIBRARY("LIBRARY");
+
+    private String value;
+
+    ModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ModeEnum fromValue(String value) {
+      for (ModeEnum b : ModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ModeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_MODE = "mode";
+  @SerializedName(SERIALIZED_NAME_MODE)
+  private ModeEnum mode;
+    private boolean modeIsSet = false;
+
+  public static final String SERIALIZED_NAME_MESSAGES = "messages";
+  @SerializedName(SERIALIZED_NAME_MESSAGES)
+  private Map<String, String> messages;
+    private boolean messagesIsSet = false;
+
+  public static final String SERIALIZED_NAME_LIBRARY = "library";
+  @SerializedName(SERIALIZED_NAME_LIBRARY)
+  private ValidationRuleErrorLibrary library;
 
   public ValidationRuleError() {
   }
@@ -71,7 +135,7 @@ public class ValidationRuleError {
   }
 
    /**
-   * The error message returned from API when validation / redemption fails to meet requirements of defined rules.
+   * Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.
    * @return message
   **/
   @javax.annotation.Nullable
@@ -89,6 +153,88 @@ public class ValidationRuleError {
   }
 
 
+  public ValidationRuleError mode(ModeEnum mode) {
+    
+    this.mode = mode;
+    this.modeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
+   * @return mode
+  **/
+  @javax.annotation.Nullable
+  public ModeEnum getMode() {
+    return mode;
+  }
+
+
+  public void setMode(ModeEnum mode) {
+    this.mode = mode;
+    this.modeIsSet = true;
+  }
+  public boolean isModeSet() {
+    return modeIsSet;
+  }
+
+
+  public ValidationRuleError messages(Map<String, String> messages) {
+    
+    this.messages = messages;
+    this.messagesIsSet = true;
+    return this;
+  }
+
+  public ValidationRuleError putMessagesItem(String key, String messagesItem) {
+    if (this.messages == null) {
+      this.messages = new HashMap<>();
+    }
+    this.messages.put(key, messagesItem);
+    return this;
+  }
+
+   /**
+   * Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.
+   * @return messages
+  **/
+  @javax.annotation.Nullable
+  public Map<String, String> getMessages() {
+    return messages;
+  }
+
+
+  public void setMessages(Map<String, String> messages) {
+    this.messages = messages;
+    this.messagesIsSet = true;
+  }
+  public boolean isMessagesSet() {
+    return messagesIsSet;
+  }
+
+
+  public ValidationRuleError library(ValidationRuleErrorLibrary library) {
+    
+    this.library = library;
+    
+    return this;
+  }
+
+   /**
+   * Get library
+   * @return library
+  **/
+  @javax.annotation.Nullable
+  public ValidationRuleErrorLibrary getLibrary() {
+    return library;
+  }
+
+
+  public void setLibrary(ValidationRuleErrorLibrary library) {
+    this.library = library;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -99,7 +245,10 @@ public class ValidationRuleError {
       return false;
     }
     ValidationRuleError validationRuleError = (ValidationRuleError) o;
-    return Objects.equals(this.message, validationRuleError.message);
+    return Objects.equals(this.message, validationRuleError.message) &&
+        Objects.equals(this.mode, validationRuleError.mode) &&
+        Objects.equals(this.messages, validationRuleError.messages) &&
+        Objects.equals(this.library, validationRuleError.library);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -108,7 +257,7 @@ public class ValidationRuleError {
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(message, mode, messages, library);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -123,6 +272,9 @@ public class ValidationRuleError {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidationRuleError {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    library: ").append(toIndentedString(library)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -146,6 +298,9 @@ public class ValidationRuleError {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("message");
+    openapiFields.add("mode");
+    openapiFields.add("messages");
+    openapiFields.add("library");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
