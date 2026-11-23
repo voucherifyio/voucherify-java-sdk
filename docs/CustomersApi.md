@@ -399,7 +399,7 @@ public class Example {
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format.
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Timestamp representing the date and time which results must end on. Represented in ISO 8601 format.
     String campaignId = "campaignId_example"; // String | Requests only events related to specific campaign identified by its ID.
-    ParameterCampaignType campaignType = ParameterCampaignType.fromValue("PROMOTION"); // ParameterCampaignType | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM.
+    ParameterCampaignType campaignType = ParameterCampaignType.fromValue("PROMOTION"); // ParameterCampaignType | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs.
     ParameterActivityCategory category = ParameterActivityCategory.fromValue("ACTION"); // ParameterActivityCategory | Filters activities for actions or effects. Allowed values:  ACTION, EFFECT.
     ParameterCustomerEvent type = ParameterCustomerEvent.fromValue("customer.confirmed"); // ParameterCustomerEvent | Event name of the customer event.
     try {
@@ -427,7 +427,7 @@ public class Example {
 | **startDate** | **OffsetDateTime**| Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. |
 | **endDate** | **OffsetDateTime**| Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. |
 | **campaignId** | **String**| Requests only events related to specific campaign identified by its ID. |
-| **campaignType** | [**ParameterCampaignType**](.md)| Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. |
+| **campaignType** | [**ParameterCampaignType**](.md)| Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. |
 | **category** | [**ParameterActivityCategory**](.md)| Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. |
 | **type** | [**ParameterCustomerEvent**](.md)| Event name of the customer event. |
 

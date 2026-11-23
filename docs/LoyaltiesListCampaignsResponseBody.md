@@ -2,7 +2,7 @@
 
 # LoyaltiesListCampaignsResponseBody
 
-Response body schema for **Get** `/loyalties`.
+**Legacy loyalty.** Response body schema for **Get** `/loyalties`.
 
 ## Properties
 

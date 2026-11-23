@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Ratio definition - &#x60;value&#x60; points for every &#x60;every&#x60; units.
+ * Ratio definition. &#x60;value&#x60; points for every &#x60;every&#x60; units.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

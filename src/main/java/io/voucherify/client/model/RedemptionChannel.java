@@ -61,7 +61,7 @@ public class RedemptionChannel {
     private boolean channelIdIsSet = false;
 
   /**
-   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.
+   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically.
    */
   @JsonAdapter(ChannelTypeEnum.Adapter.class)
   public enum ChannelTypeEnum {
@@ -151,7 +151,7 @@ public class RedemptionChannel {
   }
 
    /**
-   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.
+   * The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically.
    * @return channelType
   **/
   @javax.annotation.Nullable

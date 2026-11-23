@@ -60,7 +60,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * LoyaltyCampaign
+ * Loyalty campaign object (**legacy loyalty**). Created and managed through &#x60;/v1/loyalties&#x60; and campaign endpoints with type &#x60;LOYALTY_PROGRAM&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -631,7 +631,7 @@ public class LoyaltyCampaign {
   }
 
    /**
-   * Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
+   * Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.
    * @return autoJoin
   **/
   @javax.annotation.Nullable
@@ -657,7 +657,7 @@ public class LoyaltyCampaign {
   }
 
    /**
-   * Always set to &#x60;true&#x60; for loyalty campaigns, meaning customers can join the campaign only once. It can&#39;t be changed to &#x60;false&#x60;.
+   * Always set to &#x60;true&#x60; for **legacy loyalty** campaigns, meaning customers can join the campaign only once. It can&#39;t be changed to &#x60;false&#x60;.
    * @return joinOnce
   **/
   @javax.annotation.Nullable

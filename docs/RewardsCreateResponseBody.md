@@ -14,7 +14,7 @@ Response body schema for **POST** `v1/rewards`.
 |**redeemed** | **Integer** | Defines the number of already invoked (successful) reward redemptions.  |
 |**attributes** | [**RewardsCreateResponseBodyAttributes**](RewardsCreateResponseBodyAttributes.md) |  |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format. |
-|**type** | [**TypeEnum**](#TypeEnum) | Reward type. |
+|**type** | [**TypeEnum**](#TypeEnum) | Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier). |
 |**parameters** | [**RewardType**](RewardType.md) |  |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format. |
@@ -29,6 +29,7 @@ Response body schema for **POST** `v1/rewards`.
 | CAMPAIGN | &quot;CAMPAIGN&quot; |
 | COIN | &quot;COIN&quot; |
 | MATERIAL | &quot;MATERIAL&quot; |
+| LOYALTY_POINTS | &quot;LOYALTY_POINTS&quot; |
 
 
 

@@ -9,7 +9,7 @@ Response body schema for **GET** `/v2/loyalties/benefits/{benefitId}`.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**id** | **String** | Unique benefit ID, prefixed with &#x60;lben_&#x60;. |
-|**name** | **String** | Benefit name, unique within the project. |
+|**name** | **String** | Benefit name. |
 |**type** | [**TypeEnum**](#TypeEnum) | Benefit type. |
 |**status** | [**StatusEnum**](#StatusEnum) | Current benefit status. &#x60;DELETED&#x60; appears only in the response of the delete endpoint and in activity snapshots. |
 |**stock** | [**V2LoyaltiesBenefitsGetResponseBodyStock**](V2LoyaltiesBenefitsGetResponseBodyStock.md) |  |

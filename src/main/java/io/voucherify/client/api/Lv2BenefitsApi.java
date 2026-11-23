@@ -137,7 +137,7 @@ public class Lv2BenefitsApi {
 
     /**
      * Get benefit
-     * Returns a single benefit by its ID.
+     * Returns a single benefit by its ID. A successful call records no activity.
      * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @return V2LoyaltiesBenefitsGetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -149,7 +149,7 @@ public class Lv2BenefitsApi {
 
     /**
      * Get benefit
-     * Returns a single benefit by its ID.
+     * Returns a single benefit by its ID. A successful call records no activity.
      * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @return ApiResponse&lt;V2LoyaltiesBenefitsGetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -162,7 +162,7 @@ public class Lv2BenefitsApi {
 
     /**
      * Get benefit (asynchronously)
-     * Returns a single benefit by its ID.
+     * Returns a single benefit by its ID. A successful call records no activity.
      * @param benefitId Identifies the benefit. Format lben_[a-f0-9]+. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

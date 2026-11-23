@@ -8,10 +8,22 @@
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**name** | **String** | Reward name. |
+|**type** | [**TypeEnum**](#TypeEnum) |  |
 |**parameters** | [**RewardsCreateRequestBodyParameters**](RewardsCreateRequestBodyParameters.md) |  |
 |**metadata** | **Object** | The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format. |
 |**stock** | **Integer** | The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic. |
 |**attributes** | [**RewardsCreateRequestBodyAttributes**](RewardsCreateRequestBodyAttributes.md) |  |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| CAMPAIGN | &quot;CAMPAIGN&quot; |
+| MATERIAL | &quot;MATERIAL&quot; |
+| COIN | &quot;COIN&quot; |
+| LOYALTY_POINTS | &quot;LOYALTY_POINTS&quot; |
 
 
 

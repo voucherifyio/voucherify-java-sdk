@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.RewardTypeCampaign;
 import io.voucherify.client.model.RewardTypeCoin;
+import io.voucherify.client.model.RewardTypeLoyaltyPoints;
 import io.voucherify.client.model.RewardTypeProduct;
 import java.io.IOException;
 import java.util.Arrays;
@@ -72,6 +73,11 @@ public class RewardType {
   @SerializedName(SERIALIZED_NAME_PRODUCT)
   private RewardTypeProduct product;
     private boolean productIsSet = false;
+
+  public static final String SERIALIZED_NAME_LOYALTY_POINTS = "loyalty_points";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS)
+  private RewardTypeLoyaltyPoints loyaltyPoints;
+    private boolean loyaltyPointsIsSet = false;
 
   public RewardType() {
   }
@@ -154,6 +160,32 @@ public class RewardType {
   }
 
 
+  public RewardType loyaltyPoints(RewardTypeLoyaltyPoints loyaltyPoints) {
+    
+    this.loyaltyPoints = loyaltyPoints;
+    this.loyaltyPointsIsSet = true;
+    return this;
+  }
+
+   /**
+   * Get loyaltyPoints
+   * @return loyaltyPoints
+  **/
+  @javax.annotation.Nullable
+  public RewardTypeLoyaltyPoints getLoyaltyPoints() {
+    return loyaltyPoints;
+  }
+
+
+  public void setLoyaltyPoints(RewardTypeLoyaltyPoints loyaltyPoints) {
+    this.loyaltyPoints = loyaltyPoints;
+    this.loyaltyPointsIsSet = true;
+  }
+  public boolean isLoyaltyPointsSet() {
+    return loyaltyPointsIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -166,7 +198,8 @@ public class RewardType {
     RewardType rewardType = (RewardType) o;
     return Objects.equals(this.campaign, rewardType.campaign) &&
         Objects.equals(this.coin, rewardType.coin) &&
-        Objects.equals(this.product, rewardType.product);
+        Objects.equals(this.product, rewardType.product) &&
+        Objects.equals(this.loyaltyPoints, rewardType.loyaltyPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -175,7 +208,7 @@ public class RewardType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaign, coin, product);
+    return Objects.hash(campaign, coin, product, loyaltyPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -192,6 +225,7 @@ public class RewardType {
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    coin: ").append(toIndentedString(coin)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    loyaltyPoints: ").append(toIndentedString(loyaltyPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -217,6 +251,7 @@ public class RewardType {
     openapiFields.add("campaign");
     openapiFields.add("coin");
     openapiFields.add("product");
+    openapiFields.add("loyalty_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

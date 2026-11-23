@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.MemberActivityDataRedemptionRewardParametersCampaign;
 import io.voucherify.client.model.MemberActivityDataRedemptionRewardParametersCoin;
+import io.voucherify.client.model.MemberActivityDataRedemptionRewardParametersLoyaltyPoints;
 import io.voucherify.client.model.MemberActivityDataRedemptionRewardParametersProduct;
 import java.io.IOException;
 import java.util.Arrays;
@@ -72,6 +73,11 @@ public class MemberActivityDataRedemptionRewardParameters {
   @SerializedName(SERIALIZED_NAME_PRODUCT)
   private MemberActivityDataRedemptionRewardParametersProduct product;
     private boolean productIsSet = false;
+
+  public static final String SERIALIZED_NAME_LOYALTY_POINTS = "loyalty_points";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS)
+  private MemberActivityDataRedemptionRewardParametersLoyaltyPoints loyaltyPoints;
+    private boolean loyaltyPointsIsSet = false;
 
   public MemberActivityDataRedemptionRewardParameters() {
   }
@@ -154,6 +160,32 @@ public class MemberActivityDataRedemptionRewardParameters {
   }
 
 
+  public MemberActivityDataRedemptionRewardParameters loyaltyPoints(MemberActivityDataRedemptionRewardParametersLoyaltyPoints loyaltyPoints) {
+    
+    this.loyaltyPoints = loyaltyPoints;
+    this.loyaltyPointsIsSet = true;
+    return this;
+  }
+
+   /**
+   * Get loyaltyPoints
+   * @return loyaltyPoints
+  **/
+  @javax.annotation.Nullable
+  public MemberActivityDataRedemptionRewardParametersLoyaltyPoints getLoyaltyPoints() {
+    return loyaltyPoints;
+  }
+
+
+  public void setLoyaltyPoints(MemberActivityDataRedemptionRewardParametersLoyaltyPoints loyaltyPoints) {
+    this.loyaltyPoints = loyaltyPoints;
+    this.loyaltyPointsIsSet = true;
+  }
+  public boolean isLoyaltyPointsSet() {
+    return loyaltyPointsIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -166,7 +198,8 @@ public class MemberActivityDataRedemptionRewardParameters {
     MemberActivityDataRedemptionRewardParameters memberActivityDataRedemptionRewardParameters = (MemberActivityDataRedemptionRewardParameters) o;
     return Objects.equals(this.campaign, memberActivityDataRedemptionRewardParameters.campaign) &&
         Objects.equals(this.coin, memberActivityDataRedemptionRewardParameters.coin) &&
-        Objects.equals(this.product, memberActivityDataRedemptionRewardParameters.product);
+        Objects.equals(this.product, memberActivityDataRedemptionRewardParameters.product) &&
+        Objects.equals(this.loyaltyPoints, memberActivityDataRedemptionRewardParameters.loyaltyPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -175,7 +208,7 @@ public class MemberActivityDataRedemptionRewardParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaign, coin, product);
+    return Objects.hash(campaign, coin, product, loyaltyPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -192,6 +225,7 @@ public class MemberActivityDataRedemptionRewardParameters {
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    coin: ").append(toIndentedString(coin)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
+    sb.append("    loyaltyPoints: ").append(toIndentedString(loyaltyPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -217,6 +251,7 @@ public class MemberActivityDataRedemptionRewardParameters {
     openapiFields.add("campaign");
     openapiFields.add("coin");
     openapiFields.add("product");
+    openapiFields.add("loyalty_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -194,7 +194,7 @@ public class LoyaltiesListMembersResponseBody {
   }
 
    /**
-   * Contains array of voucher objects representing loyalty cards, in other words, loyalty program members.
+   * Contains an array of voucher objects representing loyalty cards (legacy loyalty campaign members).
    * @return vouchers
   **/
   @javax.annotation.Nullable

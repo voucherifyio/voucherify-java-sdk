@@ -22,7 +22,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Create Reward
 
-Create a new reward.
+Create a new reward. Use this endpoint for campaign-linked rewards (referral campaigns and **legacy loyalty**) and for LOYALTY_POINTS rewards that credit a v2/loyalties (loyalty hub) card from a referral tier. For Loyalty hub program rewards (a different resource), use POST /v2/loyalties/rewards.
 
 ### Example
 ```java
@@ -91,7 +91,7 @@ public class Example {
 
 Create Reward Assignment
 
-Assigns a reward to a specified loyalty campaign.
+Assigns a reward to a related object. For **legacy loyalty** and digital or material rewards, send campaign with a loyalty or referral campaign ID. For a LOYALTY_POINTS reward (credits a v2/loyalties (loyalty hub) card), send related_object_type referral_tier and related_object_id set to the referral tier ID. A LOYALTY_POINTS reward cannot be assigned to a campaign. Assigning it with campaign (or any non-referral_tier related object) returns 400 with invalid_related_to. POST /v1/loyalties/{campaignId}/rewards also cannot assign a LOYALTY_POINTS reward to a campaign. For Loyalty hub program rewards, use /v2/loyalties reward endpoints.
 
 ### Example
 ```java
@@ -116,7 +116,7 @@ public class Example {
 
     RewardsApi apiInstance = new RewardsApi(defaultClient);
     String rewardId = "rewardId_example"; // String | A unique reward ID.
-    RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = new RewardsAssignmentsCreateRequestBody(); // RewardsAssignmentsCreateRequestBody | Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.
+    RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = new RewardsAssignmentsCreateRequestBody(); // RewardsAssignmentsCreateRequestBody | For digital, material, and pay-with-points rewards, provide the campaign ID and, when required, the loyalty points cost. For a LOYALTY_POINTS reward, provide related_object_type referral_tier and the referral tier ID.
     try {
       RewardsAssignmentsCreateResponseBody result = apiInstance.createRewardAssignment(rewardId, rewardsAssignmentsCreateRequestBody);
       System.out.println(result);
@@ -136,7 +136,7 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **rewardId** | **String**| A unique reward ID. |
-| **rewardsAssignmentsCreateRequestBody** | [**RewardsAssignmentsCreateRequestBody**](RewardsAssignmentsCreateRequestBody.md)| Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. |
+| **rewardsAssignmentsCreateRequestBody** | [**RewardsAssignmentsCreateRequestBody**](RewardsAssignmentsCreateRequestBody.md)| For digital, material, and pay-with-points rewards, provide the campaign ID and, when required, the loyalty points cost. For a LOYALTY_POINTS reward, provide related_object_type referral_tier and the referral tier ID. |
 
 ### Return type
 
@@ -505,7 +505,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward. |  -  |
+| **200** | Returns a dictionary of reward assignment objects. Each object contains information regarding the resource to which the reward was assigned and the cost in loyalty points for the reward (**legacy loyalty** or referral campaigns). |  -  |
 
 <a id="listRewards"></a>
 # **listRewards**
@@ -513,7 +513,7 @@ public class Example {
 
 List Rewards
 
-Retrieve rewards.
+Retrieve campaign-linked rewards (referral campaigns and **legacy loyalty**). For Loyalty hub rewards, use GET /v2/loyalties/rewards.
 
 ### Example
 ```java

@@ -2,14 +2,14 @@
 
 # LoyaltyV2ActivityEarningRuleEffectPointsExpirationRollingExpirationRounding
 
-`value` is the month (1-12). Required when `type` is `END_OF_PARTICULAR_MONTH`. Absent for other rounding types. The API validates field combinations that this schema does not express.
+`value` is the month (1–12). Required when `type` is `END_OF_PARTICULAR_MONTH`. Absent for other rounding types. The API validates field combinations that this schema does not express.
 
 ## Properties
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**type** | [**TypeEnum**](#TypeEnum) | Rounding type. |
-|**value** | **Integer** | Month number (1-12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;. |
+|**value** | **Integer** | Month number (1–12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;. |
 
 
 

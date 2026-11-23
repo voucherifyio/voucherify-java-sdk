@@ -116,6 +116,16 @@ public class CardLifetimeBucketPoints {
   private BigDecimal unlocked = new BigDecimal("0");
     private boolean unlockedIsSet = false;
 
+  public static final String SERIALIZED_NAME_REFERRER_EARNED = "referrer_earned";
+  @SerializedName(SERIALIZED_NAME_REFERRER_EARNED)
+  private BigDecimal referrerEarned = new BigDecimal("0");
+    private boolean referrerEarnedIsSet = false;
+
+  public static final String SERIALIZED_NAME_REFEREE_EARNED = "referee_earned";
+  @SerializedName(SERIALIZED_NAME_REFEREE_EARNED)
+  private BigDecimal refereeEarned = new BigDecimal("0");
+    private boolean refereeEarnedIsSet = false;
+
   public CardLifetimeBucketPoints() {
   }
 
@@ -431,6 +441,58 @@ public class CardLifetimeBucketPoints {
   }
 
 
+  public CardLifetimeBucketPoints referrerEarned(BigDecimal referrerEarned) {
+    
+    this.referrerEarned = referrerEarned;
+    this.referrerEarnedIsSet = true;
+    return this;
+  }
+
+   /**
+   * Total points credited as a referrer from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;.
+   * @return referrerEarned
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getReferrerEarned() {
+    return referrerEarned;
+  }
+
+
+  public void setReferrerEarned(BigDecimal referrerEarned) {
+    this.referrerEarned = referrerEarned;
+    this.referrerEarnedIsSet = true;
+  }
+  public boolean isReferrerEarnedSet() {
+    return referrerEarnedIsSet;
+  }
+
+
+  public CardLifetimeBucketPoints refereeEarned(BigDecimal refereeEarned) {
+    
+    this.refereeEarned = refereeEarned;
+    this.refereeEarnedIsSet = true;
+    return this;
+  }
+
+   /**
+   * Total points credited as a referee from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;.
+   * @return refereeEarned
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getRefereeEarned() {
+    return refereeEarned;
+  }
+
+
+  public void setRefereeEarned(BigDecimal refereeEarned) {
+    this.refereeEarned = refereeEarned;
+    this.refereeEarnedIsSet = true;
+  }
+  public boolean isRefereeEarnedSet() {
+    return refereeEarnedIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -452,7 +514,9 @@ public class CardLifetimeBucketPoints {
         Objects.equals(this.refunded, cardLifetimeBucketPoints.refunded) &&
         Objects.equals(this.returned, cardLifetimeBucketPoints.returned) &&
         Objects.equals(this.locked, cardLifetimeBucketPoints.locked) &&
-        Objects.equals(this.unlocked, cardLifetimeBucketPoints.unlocked);
+        Objects.equals(this.unlocked, cardLifetimeBucketPoints.unlocked) &&
+        Objects.equals(this.referrerEarned, cardLifetimeBucketPoints.referrerEarned) &&
+        Objects.equals(this.refereeEarned, cardLifetimeBucketPoints.refereeEarned);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -461,7 +525,7 @@ public class CardLifetimeBucketPoints {
 
   @Override
   public int hashCode() {
-    return Objects.hash(total, earned, added, purchased, purchasedReversed, subtracted, expired, spent, refunded, returned, locked, unlocked);
+    return Objects.hash(total, earned, added, purchased, purchasedReversed, subtracted, expired, spent, refunded, returned, locked, unlocked, referrerEarned, refereeEarned);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -487,6 +551,8 @@ public class CardLifetimeBucketPoints {
     sb.append("    returned: ").append(toIndentedString(returned)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    unlocked: ").append(toIndentedString(unlocked)).append("\n");
+    sb.append("    referrerEarned: ").append(toIndentedString(referrerEarned)).append("\n");
+    sb.append("    refereeEarned: ").append(toIndentedString(refereeEarned)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -521,6 +587,8 @@ public class CardLifetimeBucketPoints {
     openapiFields.add("returned");
     openapiFields.add("locked");
     openapiFields.add("unlocked");
+    openapiFields.add("referrer_earned");
+    openapiFields.add("referee_earned");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

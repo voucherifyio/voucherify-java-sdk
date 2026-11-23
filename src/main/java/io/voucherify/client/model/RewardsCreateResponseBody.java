@@ -89,7 +89,7 @@ public class RewardsCreateResponseBody {
     private boolean metadataIsSet = false;
 
   /**
-   * Reward type.
+   * Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -97,7 +97,9 @@ public class RewardsCreateResponseBody {
     
     COIN("COIN"),
     
-    MATERIAL("MATERIAL");
+    MATERIAL("MATERIAL"),
+    
+    LOYALTY_POINTS("LOYALTY_POINTS");
 
     private String value;
 
@@ -372,7 +374,7 @@ public class RewardsCreateResponseBody {
   }
 
    /**
-   * Reward type.
+   * Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
    * @return type
   **/
   @javax.annotation.Nullable

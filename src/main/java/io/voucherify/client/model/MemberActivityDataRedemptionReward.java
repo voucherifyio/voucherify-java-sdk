@@ -171,7 +171,7 @@ public class MemberActivityDataRedemptionReward {
     private boolean metadataIsSet = false;
 
   /**
-   * Reward type.
+   * Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -179,7 +179,9 @@ public class MemberActivityDataRedemptionReward {
     
     COIN("COIN"),
     
-    MATERIAL("MATERIAL");
+    MATERIAL("MATERIAL"),
+    
+    LOYALTY_POINTS("LOYALTY_POINTS");
 
     private String value;
 
@@ -573,7 +575,7 @@ public class MemberActivityDataRedemptionReward {
   }
 
    /**
-   * Reward type.
+   * Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
    * @return type
   **/
   @javax.annotation.Nullable

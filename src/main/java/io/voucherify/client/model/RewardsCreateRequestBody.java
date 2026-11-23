@@ -62,6 +62,62 @@ public class RewardsCreateRequestBody {
   private String name;
     private boolean nameIsSet = false;
 
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CAMPAIGN("CAMPAIGN"),
+    
+    MATERIAL("MATERIAL"),
+    
+    COIN("COIN"),
+    
+    LOYALTY_POINTS("LOYALTY_POINTS");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
+    private boolean typeIsSet = false;
+
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private RewardsCreateRequestBodyParameters parameters;
@@ -108,6 +164,32 @@ public class RewardsCreateRequestBody {
   }
   public boolean isNameSet() {
     return nameIsSet;
+  }
+
+
+  public RewardsCreateRequestBody type(TypeEnum type) {
+    
+    this.type = type;
+    this.typeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+    this.typeIsSet = true;
+  }
+  public boolean isTypeSet() {
+    return typeIsSet;
   }
 
 
@@ -226,6 +308,7 @@ public class RewardsCreateRequestBody {
     }
     RewardsCreateRequestBody rewardsCreateRequestBody = (RewardsCreateRequestBody) o;
     return Objects.equals(this.name, rewardsCreateRequestBody.name) &&
+        Objects.equals(this.type, rewardsCreateRequestBody.type) &&
         Objects.equals(this.parameters, rewardsCreateRequestBody.parameters) &&
         Objects.equals(this.metadata, rewardsCreateRequestBody.metadata) &&
         Objects.equals(this.stock, rewardsCreateRequestBody.stock) &&
@@ -238,7 +321,7 @@ public class RewardsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, parameters, metadata, stock, attributes);
+    return Objects.hash(name, type, parameters, metadata, stock, attributes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -253,6 +336,7 @@ public class RewardsCreateRequestBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class RewardsCreateRequestBody {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    stock: ").append(toIndentedString(stock)).append("\n");
@@ -280,6 +364,7 @@ public class RewardsCreateRequestBody {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("type");
     openapiFields.add("parameters");
     openapiFields.add("metadata");
     openapiFields.add("stock");

@@ -10,6 +10,7 @@
 |**campaign** | [**MemberActivityDataRedemptionRewardParametersCampaign**](MemberActivityDataRedemptionRewardParametersCampaign.md) |  |
 |**coin** | [**MemberActivityDataRedemptionRewardParametersCoin**](MemberActivityDataRedemptionRewardParametersCoin.md) |  |
 |**product** | [**MemberActivityDataRedemptionRewardParametersProduct**](MemberActivityDataRedemptionRewardParametersProduct.md) |  |
+|**loyaltyPoints** | [**MemberActivityDataRedemptionRewardParametersLoyaltyPoints**](MemberActivityDataRedemptionRewardParametersLoyaltyPoints.md) |  |
 
 
 

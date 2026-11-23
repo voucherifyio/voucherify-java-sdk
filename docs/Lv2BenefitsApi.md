@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Get benefit
 
-Returns a single benefit by its ID.
+Returns a single benefit by its ID. A successful call records no activity.
 
 ### Example
 ```java

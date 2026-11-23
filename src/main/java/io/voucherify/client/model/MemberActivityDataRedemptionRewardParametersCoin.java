@@ -77,7 +77,7 @@ public class MemberActivityDataRedemptionRewardParametersCoin {
   }
 
    /**
-   * The cash equivalent of the points defined in the points_ratio property. and The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.
+   * The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.
    * @return exchangeRatio
   **/
   @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class MemberActivityDataRedemptionRewardParametersCoin {
   }
 
    /**
-   * The number of loyalty points that will map to the predefined cash amount defined by the exchange_ratio property. and The number of loyalty points that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property.
+   * The number of loyalty points (**legacy loyalty**) that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property.
    * @return pointsRatio
   **/
   @javax.annotation.Nullable

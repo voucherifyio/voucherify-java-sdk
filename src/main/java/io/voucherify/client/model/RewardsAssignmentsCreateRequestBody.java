@@ -63,6 +63,58 @@ public class RewardsAssignmentsCreateRequestBody {
   private String campaign;
     private boolean campaignIsSet = false;
 
+  /**
+   * Gets or Sets relatedObjectType
+   */
+  @JsonAdapter(RelatedObjectTypeEnum.Adapter.class)
+  public enum RelatedObjectTypeEnum {
+    CAMPAIGN("campaign"),
+    
+    REFERRAL_TIER("referral_tier");
+
+    private String value;
+
+    RelatedObjectTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RelatedObjectTypeEnum fromValue(String value) {
+      for (RelatedObjectTypeEnum b : RelatedObjectTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<RelatedObjectTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RelatedObjectTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RelatedObjectTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RelatedObjectTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "related_object_type";
+  @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
+  private RelatedObjectTypeEnum relatedObjectType;
+    private boolean relatedObjectTypeIsSet = false;
+
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private RewardsAssignmentsCreateRequestBodyParameters parameters;
@@ -72,6 +124,11 @@ public class RewardsAssignmentsCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_VALIDATION_RULES)
   private List<String> validationRules;
     private boolean validationRulesIsSet = false;
+
+  public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "related_object_id";
+  @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
+  private String relatedObjectId;
+    private boolean relatedObjectIdIsSet = false;
 
   public RewardsAssignmentsCreateRequestBody() {
   }
@@ -99,6 +156,32 @@ public class RewardsAssignmentsCreateRequestBody {
   }
   public boolean isCampaignSet() {
     return campaignIsSet;
+  }
+
+
+  public RewardsAssignmentsCreateRequestBody relatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
+    
+    this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
+    return this;
+  }
+
+   /**
+   * Get relatedObjectType
+   * @return relatedObjectType
+  **/
+  @javax.annotation.Nullable
+  public RelatedObjectTypeEnum getRelatedObjectType() {
+    return relatedObjectType;
+  }
+
+
+  public void setRelatedObjectType(RelatedObjectTypeEnum relatedObjectType) {
+    this.relatedObjectType = relatedObjectType;
+    this.relatedObjectTypeIsSet = true;
+  }
+  public boolean isRelatedObjectTypeSet() {
+    return relatedObjectTypeIsSet;
   }
 
 
@@ -162,6 +245,32 @@ public class RewardsAssignmentsCreateRequestBody {
   }
 
 
+  public RewardsAssignmentsCreateRequestBody relatedObjectId(String relatedObjectId) {
+    
+    this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+    return this;
+  }
+
+   /**
+   * Unique referral tier ID, assigned by Voucherify.
+   * @return relatedObjectId
+  **/
+  @javax.annotation.Nullable
+  public String getRelatedObjectId() {
+    return relatedObjectId;
+  }
+
+
+  public void setRelatedObjectId(String relatedObjectId) {
+    this.relatedObjectId = relatedObjectId;
+    this.relatedObjectIdIsSet = true;
+  }
+  public boolean isRelatedObjectIdSet() {
+    return relatedObjectIdIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -173,8 +282,10 @@ public class RewardsAssignmentsCreateRequestBody {
     }
     RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = (RewardsAssignmentsCreateRequestBody) o;
     return Objects.equals(this.campaign, rewardsAssignmentsCreateRequestBody.campaign) &&
+        Objects.equals(this.relatedObjectType, rewardsAssignmentsCreateRequestBody.relatedObjectType) &&
         Objects.equals(this.parameters, rewardsAssignmentsCreateRequestBody.parameters) &&
-        Objects.equals(this.validationRules, rewardsAssignmentsCreateRequestBody.validationRules);
+        Objects.equals(this.validationRules, rewardsAssignmentsCreateRequestBody.validationRules) &&
+        Objects.equals(this.relatedObjectId, rewardsAssignmentsCreateRequestBody.relatedObjectId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -183,7 +294,7 @@ public class RewardsAssignmentsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaign, parameters, validationRules);
+    return Objects.hash(campaign, relatedObjectType, parameters, validationRules, relatedObjectId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -198,8 +309,10 @@ public class RewardsAssignmentsCreateRequestBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class RewardsAssignmentsCreateRequestBody {\n");
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
+    sb.append("    relatedObjectType: ").append(toIndentedString(relatedObjectType)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    validationRules: ").append(toIndentedString(validationRules)).append("\n");
+    sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -223,8 +336,10 @@ public class RewardsAssignmentsCreateRequestBody {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("campaign");
+    openapiFields.add("related_object_type");
     openapiFields.add("parameters");
     openapiFields.add("validation_rules");
+    openapiFields.add("related_object_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

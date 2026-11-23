@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Get reward by ID
 
-Returns a single reward by its ID.
+Returns a single reward by its ID. A successful call records no activity.
 
 ### Example
 ```java
