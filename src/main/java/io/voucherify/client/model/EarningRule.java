@@ -62,7 +62,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * EarningRule
+ * Earning rule for a **legacy loyalty** campaign. For Loyalty hub earning rules, see &#x60;/v2/loyalties/earning-rules&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

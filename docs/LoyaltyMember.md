@@ -2,7 +2,7 @@
 
 # LoyaltyMember
 
-This is an object representing a loyalty member.
+**Legacy loyalty.** This is an object representing a loyalty member.
 
 ## Properties
 

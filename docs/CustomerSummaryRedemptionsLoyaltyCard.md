@@ -2,7 +2,7 @@
 
 # CustomerSummaryRedemptionsLoyaltyCard
 
-Summary of loyalty points.
+Summary of loyalty points (**legacy loyalty**).
 
 ## Properties
 

@@ -246,7 +246,7 @@ public class ListPublicationsItemVoucher {
   }
 
    /**
-   * Defines the loyalty card details.
+   * Defines the legacy loyalty card details.
    * @return loyaltyCard
   **/
   @javax.annotation.Nullable

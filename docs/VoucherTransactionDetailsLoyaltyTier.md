@@ -2,7 +2,7 @@
 
 # VoucherTransactionDetailsLoyaltyTier
 
-Contains information about the loyalty tier that is mapped for the earning rule and used in the transaction.
+Contains information about the legacy loyalty tier that is mapped for the earning rule and used in the transaction.
 
 ## Properties
 

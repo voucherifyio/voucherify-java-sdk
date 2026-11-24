@@ -10,7 +10,7 @@ Response body schema for **GET** `/v2/loyalties/earning-rules/{earningRuleId}`.
 |------------ | ------------- | ------------- |
 |**id** | **String** | Earning rule ID (&#x60;lern_...&#x60;). |
 |**name** | **String** | Earning rule name. |
-|**status** | [**StatusEnum**](#StatusEnum) | Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads. |
+|**status** | [**StatusEnum**](#StatusEnum) | Current status. &#x60;DELETED&#x60; is returned only by the delete operation. |
 |**earnings** | [**List&lt;EarningRuleEarning&gt;**](EarningRuleEarning.md) | Earning definitions of the rule. Contains at least one earning. |
 |**trigger** | [**EarningRuleTrigger**](EarningRuleTrigger.md) |  |
 |**error** | [**LoyaltyV2ActivityEarningRuleError**](LoyaltyV2ActivityEarningRuleError.md) |  |
@@ -33,6 +33,7 @@ Response body schema for **GET** `/v2/loyalties/earning-rules/{earningRuleId}`.
 | DRAFT | &quot;DRAFT&quot; |
 | ACTIVE | &quot;ACTIVE&quot; |
 | INACTIVE | &quot;INACTIVE&quot; |
+| DELETED | &quot;DELETED&quot; |
 
 
 

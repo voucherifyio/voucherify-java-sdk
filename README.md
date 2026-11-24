@@ -70,7 +70,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.voucherify.client</groupId>
   <artifactId>voucherify-java-sdk</artifactId>
-  <version>17.1.0</version>
+  <version>17.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,7 +85,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.voucherify.client:voucherify-java-sdk:17.1.0"
+     implementation "io.voucherify.client:voucherify-java-sdk:17.2.0"
   }
 ```
 
@@ -99,7 +99,7 @@ mvn clean package
 
 Next, install manually the following JARs:
 
-* `target/voucherify-java-sdk-17.1.0.jar`
+* `target/voucherify-java-sdk-17.2.0.jar`
 * `target/lib/*.jar`
 
 ## 🚀 Run code
@@ -173,7 +173,7 @@ To run tests locally with commands:
 This SDK is generated automatically from our [OpenAPI specification](https://github.com/voucherifyio/voucherify-openapi). To contribute, submit an issue rather than creating a pull request. Voucherify developers will review your issue and reply as soon as possible.
 
 ## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.1.0)
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-java-17.2.0)
 
 ## 🔐 Authorization
 
@@ -242,6 +242,16 @@ Authorization schemes defined for the API.
 - **Type**: HTTP Bearer Token authentication (JWT)
 
 ## 📅 Changelog
+- **2026-11-23** - `17.2.0`
+ADDED:
+- Loyalty referral fields: `referrerPointsEarned` and `refereePointsEarned` on `CardDailyReportEntry`, `referrerEarned` and `refereeEarned` on `CardLifetimeBucketPoints`, the transaction types `REFERRER_POINTS_EARNED` and `REFEREE_POINTS_EARNED` on `CardTransaction`, and the status `DELETED` on `V2LoyaltiesEarningRulesGetResponseBody`.
+- `referral_tier` as `relatedObjectType` on reward assignment models. `RewardsAssignmentsCreateRequestBody` accepts optional `relatedObjectType` (`campaign` or `referral_tier`) and `relatedObjectId` for assigning a `LOYALTY_POINTS` reward to a referral tier. The SDK does not set `relatedObjectType` by default, so assigning a reward to a campaign with `campaign` works as before.
+- The `LOYALTY_POINTS` reward type: the `LOYALTY_POINTS` value on reward `type` fields, and `parameters.loyaltyPoints` (`points`, `programId`, `cardDefinitionId`, `onMissingMember`) on reward create, update, response, and member activity parameter models.
+- Optional `type` on `RewardsCreateRequestBody` (`CAMPAIGN`, `MATERIAL`, `COIN`, `LOYALTY_POINTS`). The SDK does not set it by default and Voucherify infers the type from `parameters`, so creating a campaign, product, or pay-with-points reward without `type` works as before.
+
+FIXED:
+- `price_formula` in `ApplicableTo` and `InapplicableTo` is `String` (was `BigDecimal`). `getPriceFormula()`, `setPriceFormula()`, and `priceFormula()` changed with that type, so update call sites. The API expects a formula expression string such as `IF(ORDER_AMOUNT > 300;ORDER_ITEM_PRICE * 0.8;ORDER_ITEM_PRICE)`.
+
 - **2026-10-14** - `17.1.0`
 ADDED:
 - Loyalty v2 methods under `/v2/loyalties`: member create, update, delete, activate, and deactivate; card point adjustments; order payments; reward purchase and refund; plus memberships, cards, benefits, earning rules, rewards, examine, and reports.
@@ -1979,6 +1989,7 @@ Class | Method | HTTP request | Description
 - [MemberActivityDataRedemptionRewardParameters](docs/MemberActivityDataRedemptionRewardParameters.md)
 - [MemberActivityDataRedemptionRewardParametersCampaign](docs/MemberActivityDataRedemptionRewardParametersCampaign.md)
 - [MemberActivityDataRedemptionRewardParametersCoin](docs/MemberActivityDataRedemptionRewardParametersCoin.md)
+- [MemberActivityDataRedemptionRewardParametersLoyaltyPoints](docs/MemberActivityDataRedemptionRewardParametersLoyaltyPoints.md)
 - [MemberActivityDataRedemptionRewardParametersProduct](docs/MemberActivityDataRedemptionRewardParametersProduct.md)
 - [MemberActivityDataRedemptionRewardProduct](docs/MemberActivityDataRedemptionRewardProduct.md)
 - [MemberActivityDataRedemptionRewardSku](docs/MemberActivityDataRedemptionRewardSku.md)
@@ -2467,6 +2478,7 @@ Class | Method | HTTP request | Description
 - [RewardType](docs/RewardType.md)
 - [RewardTypeCampaign](docs/RewardTypeCampaign.md)
 - [RewardTypeCoin](docs/RewardTypeCoin.md)
+- [RewardTypeLoyaltyPoints](docs/RewardTypeLoyaltyPoints.md)
 - [RewardTypeProduct](docs/RewardTypeProduct.md)
 - [RewardValidityHoursResponse](docs/RewardValidityHoursResponse.md)
 - [RewardsAssignmentsCreateRequestBody](docs/RewardsAssignmentsCreateRequestBody.md)
@@ -2490,6 +2502,7 @@ Class | Method | HTTP request | Description
 - [RewardsCreateRequestBodyParameters](docs/RewardsCreateRequestBodyParameters.md)
 - [RewardsCreateRequestBodyParametersCampaign](docs/RewardsCreateRequestBodyParametersCampaign.md)
 - [RewardsCreateRequestBodyParametersCoin](docs/RewardsCreateRequestBodyParametersCoin.md)
+- [RewardsCreateRequestBodyParametersLoyaltyPoints](docs/RewardsCreateRequestBodyParametersLoyaltyPoints.md)
 - [RewardsCreateRequestBodyParametersProduct](docs/RewardsCreateRequestBodyParametersProduct.md)
 - [RewardsCreateResponseBody](docs/RewardsCreateResponseBody.md)
 - [RewardsCreateResponseBodyAttributes](docs/RewardsCreateResponseBodyAttributes.md)
@@ -2511,6 +2524,7 @@ Class | Method | HTTP request | Description
 - [RewardsUpdateRequestBodyParameters](docs/RewardsUpdateRequestBodyParameters.md)
 - [RewardsUpdateRequestBodyParametersCampaign](docs/RewardsUpdateRequestBodyParametersCampaign.md)
 - [RewardsUpdateRequestBodyParametersCoin](docs/RewardsUpdateRequestBodyParametersCoin.md)
+- [RewardsUpdateRequestBodyParametersLoyaltyPoints](docs/RewardsUpdateRequestBodyParametersLoyaltyPoints.md)
 - [RewardsUpdateRequestBodyParametersProduct](docs/RewardsUpdateRequestBodyParametersProduct.md)
 - [RewardsUpdateResponseBody](docs/RewardsUpdateResponseBody.md)
 - [RewardsUpdateResponseBodyAttributes](docs/RewardsUpdateResponseBodyAttributes.md)

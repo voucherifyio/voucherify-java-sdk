@@ -52,7 +52,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Defines the Loyalty Tiers Expiration.
+ * **Legacy loyalty.** Defines the Loyalty Tiers Expiration.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

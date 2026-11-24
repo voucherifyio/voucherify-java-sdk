@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * &#x60;value&#x60; is the month (1-12). Required when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;. Absent for other rounding types. The API validates field combinations that this schema does not express.
+ * &#x60;value&#x60; is the month (1–12). Required when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;. Absent for other rounding types. The API validates field combinations that this schema does not express.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -155,7 +155,7 @@ public class LoyaltyV2ActivityEarningRuleEffectPointsExpirationRollingExpiration
   }
 
    /**
-   * Month number (1-12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;.
+   * Month number (1–12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;.
    * minimum: 1
    * maximum: 12
    * @return value

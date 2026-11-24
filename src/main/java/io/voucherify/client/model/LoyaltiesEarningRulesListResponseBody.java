@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for listing earning rules using **GET** &#x60;v1/loyalties/{campaignId}/earning-rules&#x60; endpoint.
+ * **Legacy loyalty.** Response body schema for listing earning rules using **GET** &#x60;v1/loyalties/{campaignId}/earning-rules&#x60; endpoint.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

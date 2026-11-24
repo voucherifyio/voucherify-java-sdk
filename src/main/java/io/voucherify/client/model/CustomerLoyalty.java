@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * CustomerLoyalty
+ * Summary of the customer&#39;s **legacy loyalty** activity: points on loyalty cards and referred customers. Loyalty hub memberships are listed separately under &#x60;loyalty_memberships&#x60; on the customer object.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -84,7 +84,7 @@ public class CustomerLoyalty {
   }
 
    /**
-   * Customer&#39;s loyalty points minus expired for all loyalty cards which the customer has.
+   * Customer&#39;s loyalty points minus expired points for all loyalty cards (**legacy loyalty**) which the customer has.
    * @return points
   **/
   @javax.annotation.Nullable
@@ -144,7 +144,7 @@ public class CustomerLoyalty {
   }
 
    /**
-   * Contains campaigns with details about point balances and how many customers were referred by the customer.
+   * Contains **legacy loyalty** and referral campaigns with details about point balances and how many customers were referred by the customer.
    * @return campaigns
   **/
   @javax.annotation.Nullable

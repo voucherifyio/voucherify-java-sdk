@@ -133,11 +133,13 @@ public class RewardsAssignmentsUpdateResponseBody {
     private boolean relatedObjectIdIsSet = false;
 
   /**
-   * Related object type to which the reward was assigned.
+   * Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier.
    */
   @JsonAdapter(RelatedObjectTypeEnum.Adapter.class)
   public enum RelatedObjectTypeEnum {
-    CAMPAIGN("campaign");
+    CAMPAIGN("campaign"),
+    
+    REFERRAL_TIER("referral_tier");
 
     private String value;
 
@@ -328,7 +330,7 @@ public class RewardsAssignmentsUpdateResponseBody {
   }
 
    /**
-   * Related object ID to which the reward was assigned.
+   * Related object ID to which the reward was assigned. For &#x60;related_object_type&#x60; &#x60;campaign&#x60;, this is the campaign ID. For &#x60;referral_tier&#x60;, this is the referral tier ID.
    * @return relatedObjectId
   **/
   @javax.annotation.Nullable
@@ -354,7 +356,7 @@ public class RewardsAssignmentsUpdateResponseBody {
   }
 
    /**
-   * Related object type to which the reward was assigned.
+   * Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier.
    * @return relatedObjectType
   **/
   @javax.annotation.Nullable

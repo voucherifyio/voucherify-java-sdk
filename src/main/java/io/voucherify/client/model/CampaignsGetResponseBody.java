@@ -651,7 +651,7 @@ public class CampaignsGetResponseBody {
   }
 
    /**
-   * Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
+   * Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.
    * @return autoJoin
   **/
   @javax.annotation.Nullable
@@ -677,7 +677,7 @@ public class CampaignsGetResponseBody {
   }
 
    /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.
+   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for **legacy loyalty** campaigns and it cannot be changed in them.
    * @return joinOnce
   **/
   @javax.annotation.Nullable

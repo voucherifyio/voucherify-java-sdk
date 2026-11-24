@@ -53,7 +53,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **Get** &#x60;/loyalties&#x60;.
+ * **Legacy loyalty.** Response body schema for **Get** &#x60;/loyalties&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

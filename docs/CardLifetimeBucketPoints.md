@@ -20,6 +20,8 @@ Lifetime counters of regular points. All counters default to 0. The available ba
 |**returned** | **BigDecimal** | Total returned points (by returning a purchased reward). |
 |**locked** | **BigDecimal** | Total locked points (by locking a purchased reward). |
 |**unlocked** | **BigDecimal** | Total unlocked points (by unlocking a purchased reward). |
+|**referrerEarned** | **BigDecimal** | Total points credited as a referrer from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;. |
+|**refereeEarned** | **BigDecimal** | Total points credited as a referee from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;. |
 
 
 

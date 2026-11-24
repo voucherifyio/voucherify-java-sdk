@@ -335,7 +335,7 @@ public class CampaignsApi {
     }
     /**
      * Build call for createCampaign
-     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
+     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. For loyalty campaigns, this creates a **legacy loyalty** campaign (campaign type LOYALTY_PROGRAM). For loyalty programs in the Loyalty hub, use /v2/loyalties/programs. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -394,7 +394,7 @@ public class CampaignsApi {
     /**
      * Create Campaign
      * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
-     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
+     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. For loyalty campaigns, this creates a **legacy loyalty** campaign (campaign type LOYALTY_PROGRAM). For loyalty programs in the Loyalty hub, use /v2/loyalties/programs. (optional)
      * @return CampaignsCreateResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -406,7 +406,7 @@ public class CampaignsApi {
     /**
      * Create Campaign
      * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
-     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
+     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. For loyalty campaigns, this creates a **legacy loyalty** campaign (campaign type LOYALTY_PROGRAM). For loyalty programs in the Loyalty hub, use /v2/loyalties/programs. (optional)
      * @return ApiResponse&lt;CampaignsCreateResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -419,7 +419,7 @@ public class CampaignsApi {
     /**
      * Create Campaign (asynchronously)
      * Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
-     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. (optional)
+     * @param campaignsCreateRequestBody Specify the details of the campaign that you would like to create. For loyalty campaigns, this creates a **legacy loyalty** campaign (campaign type LOYALTY_PROGRAM). For loyalty programs in the Loyalty hub, use /v2/loyalties/programs. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -815,7 +815,7 @@ public class CampaignsApi {
 
     /**
      * Export Campaign Transactions
-     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
+     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards (**legacy loyalty**) in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For **legacy loyalty** campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @return CampaignsTransactionsExportCreateResponseBody
@@ -828,7 +828,7 @@ public class CampaignsApi {
 
     /**
      * Export Campaign Transactions
-     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
+     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards (**legacy loyalty**) in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For **legacy loyalty** campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @return ApiResponse&lt;CampaignsTransactionsExportCreateResponseBody&gt;
@@ -842,7 +842,7 @@ public class CampaignsApi {
 
     /**
      * Export Campaign Transactions (asynchronously)
-     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
+     * Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards (**legacy loyalty**) in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For **legacy loyalty** campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param campaignsTransactionsExportCreateRequestBody Specify the parameters for the transaction export. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1383,7 +1383,7 @@ public class CampaignsApi {
 
     /**
      * List Campaign Transactions
-     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
+     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and **legacy loyalty** campaigns. &lt;/Warning&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -1399,7 +1399,7 @@ public class CampaignsApi {
 
     /**
      * List Campaign Transactions
-     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
+     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and **legacy loyalty** campaigns. &lt;/Warning&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)
@@ -1416,7 +1416,7 @@ public class CampaignsApi {
 
     /**
      * List Campaign Transactions (asynchronously)
-     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
+     * Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and **legacy loyalty** campaigns. &lt;/Warning&gt;
      * @param campaignId You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. (required)
      * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
      * @param order Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)

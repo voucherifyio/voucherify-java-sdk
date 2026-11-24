@@ -104,7 +104,7 @@ public class V2LoyaltiesBenefitsGetResponseBodyPoints {
   }
 
    /**
-   * ID of the card definition whose cards receive the points. The card definition must exist and be &#x60;ACTIVE&#x60;.
+   * ID of the card definition whose cards receive the points. The card definition must exist. Creating with &#x60;status: ACTIVE&#x60;, or updating with this object, requires an &#x60;ACTIVE&#x60; card definition.
    * @return cardDefinitionId
   **/
   @javax.annotation.Nullable

@@ -20,7 +20,7 @@
 |**updatedAt** | **String** |  |
 |**parameters** | [**MemberActivityDataRedemptionRewardParameters**](MemberActivityDataRedemptionRewardParameters.md) |  |
 |**metadata** | **Object** | A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward. |
-|**type** | [**TypeEnum**](#TypeEnum) | Reward type. |
+|**type** | [**TypeEnum**](#TypeEnum) | Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier). |
 
 
 
@@ -39,6 +39,7 @@
 | CAMPAIGN | &quot;CAMPAIGN&quot; |
 | COIN | &quot;COIN&quot; |
 | MATERIAL | &quot;MATERIAL&quot; |
+| LOYALTY_POINTS | &quot;LOYALTY_POINTS&quot; |
 
 
 

@@ -76,7 +76,7 @@ public class LoyaltyV2ActivityEarningRuleEffectPointsExpirationCalendarExpiratio
   }
 
    /**
-   * Day of month (1-31; validated against the month length).
+   * Day of month (1–31; validated against the month length).
    * minimum: 1
    * maximum: 31
    * @return day
@@ -104,7 +104,7 @@ public class LoyaltyV2ActivityEarningRuleEffectPointsExpirationCalendarExpiratio
   }
 
    /**
-   * Month number (1-12).
+   * Month number (1–12).
    * minimum: 1
    * maximum: 12
    * @return month

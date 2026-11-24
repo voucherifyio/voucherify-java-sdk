@@ -59,7 +59,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * LoyaltiesEarningRulesUpdateRequestBody
+ * Request body for updating an earning rule in a **legacy loyalty** campaign (&#x60;PUT /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;).
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

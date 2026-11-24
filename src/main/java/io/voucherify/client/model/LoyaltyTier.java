@@ -57,7 +57,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * LoyaltyTier
+ * Loyalty tier within a **legacy loyalty** campaign.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

@@ -159,7 +159,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | Unique campaign ID of the loyalty program.
+    String campaignId = "campaignId_example"; // String | Unique campaign ID of the legacy loyalty campaign.
     LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = new LoyaltiesMembersCreateRequestBody(); // LoyaltiesMembersCreateRequestBody | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.
     try {
       LoyaltiesMembersCreateResponseBody result = apiInstance.addMember(campaignId, loyaltiesMembersCreateRequestBody);
@@ -179,7 +179,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| Unique campaign ID of the loyalty program. |
+| **campaignId** | **String**| Unique campaign ID of the legacy loyalty campaign. |
 | **loyaltiesMembersCreateRequestBody** | [**LoyaltiesMembersCreateRequestBody**](LoyaltiesMembersCreateRequestBody.md)| Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. |
 
 ### Return type
@@ -631,7 +631,7 @@ public class Example {
 
 Create Loyalty Campaign Reward Assignment
 
-&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign. A LOYALTY_POINTS reward cannot be assigned to a campaign. Use **POST** v1/rewards/{rewardId}/assignments with related_object_type referral_tier instead.
 
 ### Example
 ```java
@@ -2284,7 +2284,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a dictionary with loyalty program objects. The loyalty campaigns are returned sorted by creation date, with the most recent campaigns appearing first. |  -  |
+| **200** | Returns a dictionary with loyalty campaign objects. The loyalty campaigns are returned sorted by creation date, with the most recent campaigns appearing first. |  -  |
 
 <a id="listLoyaltyTierEarningRules"></a>
 # **listLoyaltyTierEarningRules**
@@ -2979,7 +2979,7 @@ public class Example {
     defaultClient.setAuthentication("X-App-Token", "YOUR API KEY");
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
-    String campaignId = "campaignId_example"; // String | Unique campaign ID of the loyalty program.
+    String campaignId = "campaignId_example"; // String | Unique campaign ID of the legacy loyalty campaign.
     Integer limit = 56; // Integer | Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items.
     Integer page = 56; // Integer | Which page of results to return. The lowest value is 1.
     String customer = "customer_example"; // String | A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters.
@@ -3006,7 +3006,7 @@ public class Example {
 
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
-| **campaignId** | **String**| Unique campaign ID of the loyalty program. |
+| **campaignId** | **String**| Unique campaign ID of the legacy loyalty campaign. |
 | **limit** | **Integer**| Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. |
 | **page** | **Integer**| Which page of results to return. The lowest value is 1. |
 | **customer** | **String**| A tracking identifier of a customer who is the holder of the vouchers. It can be an id generated by Voucherify or the source_id. Remember to use the proper URL escape codes if the source_id contains special characters. |
@@ -3699,7 +3699,7 @@ public class Example {
 
 Update Loyalty Campaign
 
-&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+&lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty campaign.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
 
 ### Example
 ```java

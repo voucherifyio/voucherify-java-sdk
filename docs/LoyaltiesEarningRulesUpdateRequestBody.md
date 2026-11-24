@@ -2,6 +2,7 @@
 
 # LoyaltiesEarningRulesUpdateRequestBody
 
+Request body for updating an earning rule in a **legacy loyalty** campaign (`PUT /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`).
 
 ## Properties
 

@@ -49,7 +49,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Contains details about the point balances left on loyalty cards and the number of referred customers in each campaign.
+ * Contains details about the point balances left on loyalty cards (**legacy loyalty**) and the number of referred customers in each campaign.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -99,7 +99,7 @@ public class CustomerLoyaltyCampaignsEntry {
   }
 
    /**
-   * Customer&#39;s loyalty tier within the campaign.
+   * Customer&#39;s loyalty tier within the **legacy loyalty** campaign.
    * @return loyaltyTier
   **/
   @javax.annotation.Nullable

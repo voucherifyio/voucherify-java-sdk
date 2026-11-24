@@ -122,6 +122,16 @@ public class CardDailyReportEntry {
   private BigDecimal pointsUnlocked;
     private boolean pointsUnlockedIsSet = false;
 
+  public static final String SERIALIZED_NAME_REFERRER_POINTS_EARNED = "referrer_points_earned";
+  @SerializedName(SERIALIZED_NAME_REFERRER_POINTS_EARNED)
+  private BigDecimal referrerPointsEarned;
+    private boolean referrerPointsEarnedIsSet = false;
+
+  public static final String SERIALIZED_NAME_REFEREE_POINTS_EARNED = "referee_points_earned";
+  @SerializedName(SERIALIZED_NAME_REFEREE_POINTS_EARNED)
+  private BigDecimal refereePointsEarned;
+    private boolean refereePointsEarnedIsSet = false;
+
   public static final String SERIALIZED_NAME_PENDING_POINTS_TOTAL = "pending_points_total";
   @SerializedName(SERIALIZED_NAME_PENDING_POINTS_TOTAL)
   private BigDecimal pendingPointsTotal;
@@ -224,7 +234,7 @@ public class CardDailyReportEntry {
   }
 
    /**
-   * Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, and &#x60;points_purchased&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted.
+   * Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, &#x60;points_purchased&#x60;, &#x60;referrer_points_earned&#x60;, and &#x60;referee_points_earned&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted.
    * @return pointsTotal
   **/
   @javax.annotation.Nullable
@@ -528,6 +538,58 @@ public class CardDailyReportEntry {
   }
 
 
+  public CardDailyReportEntry referrerPointsEarned(BigDecimal referrerPointsEarned) {
+    
+    this.referrerPointsEarned = referrerPointsEarned;
+    this.referrerPointsEarnedIsSet = true;
+    return this;
+  }
+
+   /**
+   * Points credited from referral referrer awards in the period (&#x60;REFERRER_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referrer tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;.
+   * @return referrerPointsEarned
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getReferrerPointsEarned() {
+    return referrerPointsEarned;
+  }
+
+
+  public void setReferrerPointsEarned(BigDecimal referrerPointsEarned) {
+    this.referrerPointsEarned = referrerPointsEarned;
+    this.referrerPointsEarnedIsSet = true;
+  }
+  public boolean isReferrerPointsEarnedSet() {
+    return referrerPointsEarnedIsSet;
+  }
+
+
+  public CardDailyReportEntry refereePointsEarned(BigDecimal refereePointsEarned) {
+    
+    this.refereePointsEarned = refereePointsEarned;
+    this.refereePointsEarnedIsSet = true;
+    return this;
+  }
+
+   /**
+   * Points credited from referral referee awards in the period (&#x60;REFEREE_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referee tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;.
+   * @return refereePointsEarned
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getRefereePointsEarned() {
+    return refereePointsEarned;
+  }
+
+
+  public void setRefereePointsEarned(BigDecimal refereePointsEarned) {
+    this.refereePointsEarned = refereePointsEarned;
+    this.refereePointsEarnedIsSet = true;
+  }
+  public boolean isRefereePointsEarnedSet() {
+    return refereePointsEarnedIsSet;
+  }
+
+
   public CardDailyReportEntry pendingPointsTotal(BigDecimal pendingPointsTotal) {
     
     this.pendingPointsTotal = pendingPointsTotal;
@@ -655,6 +717,8 @@ public class CardDailyReportEntry {
         Objects.equals(this.pointsReturned, cardDailyReportEntry.pointsReturned) &&
         Objects.equals(this.pointsLocked, cardDailyReportEntry.pointsLocked) &&
         Objects.equals(this.pointsUnlocked, cardDailyReportEntry.pointsUnlocked) &&
+        Objects.equals(this.referrerPointsEarned, cardDailyReportEntry.referrerPointsEarned) &&
+        Objects.equals(this.refereePointsEarned, cardDailyReportEntry.refereePointsEarned) &&
         Objects.equals(this.pendingPointsTotal, cardDailyReportEntry.pendingPointsTotal) &&
         Objects.equals(this.pendingPointsActivated, cardDailyReportEntry.pendingPointsActivated) &&
         Objects.equals(this.pendingPointsCanceled, cardDailyReportEntry.pendingPointsCanceled) &&
@@ -667,7 +731,7 @@ public class CardDailyReportEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, pointsTotal, pointsEarned, pointsAdded, pointsPurchased, pointsPurchasedReversed, pointsSubtracted, pointsExpired, pointsSpent, pointsRefunded, pointsReturned, pointsLocked, pointsUnlocked, pendingPointsTotal, pendingPointsActivated, pendingPointsCanceled, _object);
+    return Objects.hash(date, pointsTotal, pointsEarned, pointsAdded, pointsPurchased, pointsPurchasedReversed, pointsSubtracted, pointsExpired, pointsSpent, pointsRefunded, pointsReturned, pointsLocked, pointsUnlocked, referrerPointsEarned, refereePointsEarned, pendingPointsTotal, pendingPointsActivated, pendingPointsCanceled, _object);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -694,6 +758,8 @@ public class CardDailyReportEntry {
     sb.append("    pointsReturned: ").append(toIndentedString(pointsReturned)).append("\n");
     sb.append("    pointsLocked: ").append(toIndentedString(pointsLocked)).append("\n");
     sb.append("    pointsUnlocked: ").append(toIndentedString(pointsUnlocked)).append("\n");
+    sb.append("    referrerPointsEarned: ").append(toIndentedString(referrerPointsEarned)).append("\n");
+    sb.append("    refereePointsEarned: ").append(toIndentedString(refereePointsEarned)).append("\n");
     sb.append("    pendingPointsTotal: ").append(toIndentedString(pendingPointsTotal)).append("\n");
     sb.append("    pendingPointsActivated: ").append(toIndentedString(pendingPointsActivated)).append("\n");
     sb.append("    pendingPointsCanceled: ").append(toIndentedString(pendingPointsCanceled)).append("\n");
@@ -733,6 +799,8 @@ public class CardDailyReportEntry {
     openapiFields.add("points_returned");
     openapiFields.add("points_locked");
     openapiFields.add("points_unlocked");
+    openapiFields.add("referrer_points_earned");
+    openapiFields.add("referee_points_earned");
     openapiFields.add("pending_points_total");
     openapiFields.add("pending_points_activated");
     openapiFields.add("pending_points_canceled");

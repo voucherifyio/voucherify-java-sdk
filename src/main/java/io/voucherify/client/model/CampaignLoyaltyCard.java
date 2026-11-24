@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Schema model for a campaign loyalty card.
+ * Schema model for a campaign loyalty card (**legacy loyalty**).
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

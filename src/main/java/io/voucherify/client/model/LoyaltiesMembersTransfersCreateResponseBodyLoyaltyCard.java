@@ -50,7 +50,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Object representing loyalty card parameters. Child attributes are present only if type is LOYALTY_CARD.
+ * Object representing legacy loyalty card parameters. Child attributes are present only if type is LOYALTY_CARD.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

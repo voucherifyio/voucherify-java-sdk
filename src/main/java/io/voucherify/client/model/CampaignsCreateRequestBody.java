@@ -417,7 +417,7 @@ public class CampaignsCreateRequestBody {
   }
 
    /**
-   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.
+   * If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For **legacy loyalty** campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.
    * @return joinOnce
   **/
   @javax.annotation.Nullable
@@ -443,7 +443,7 @@ public class CampaignsCreateRequestBody {
   }
 
    /**
-   * Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
+   * Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.
    * @return autoJoin
   **/
   @javax.annotation.Nullable

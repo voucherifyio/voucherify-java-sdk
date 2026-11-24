@@ -71,7 +71,7 @@ public class LoyaltyV2ActivityBenefitStockLimited {
   }
 
    /**
-   * Available Remaining stock quantity. For responses, updates with each benefit purchase.
+   * Remaining stock quantity. On create, this is the starting quantity. Each benefit purchase decreases it by one.
    * minimum: 0
    * maximum: 9007199254740991
    * @return quantity

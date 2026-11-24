@@ -301,7 +301,7 @@ public class V2LoyaltiesBenefitsGetResponseBody {
   }
 
    /**
-   * Benefit name, unique within the project.
+   * Benefit name.
    * @return name
   **/
   @javax.annotation.Nullable

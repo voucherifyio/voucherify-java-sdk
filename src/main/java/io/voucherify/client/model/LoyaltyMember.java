@@ -59,7 +59,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * This is an object representing a loyalty member.
+ * **Legacy loyalty.** This is an object representing a loyalty member.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 

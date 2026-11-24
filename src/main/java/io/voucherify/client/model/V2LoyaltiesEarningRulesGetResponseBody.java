@@ -77,7 +77,7 @@ public class V2LoyaltiesEarningRulesGetResponseBody {
     private boolean nameIsSet = false;
 
   /**
-   * Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads.
+   * Current status. &#x60;DELETED&#x60; is returned only by the delete operation.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -85,7 +85,9 @@ public class V2LoyaltiesEarningRulesGetResponseBody {
     
     ACTIVE("ACTIVE"),
     
-    INACTIVE("INACTIVE");
+    INACTIVE("INACTIVE"),
+    
+    DELETED("DELETED");
 
     private String value;
 
@@ -293,7 +295,7 @@ public class V2LoyaltiesEarningRulesGetResponseBody {
   }
 
    /**
-   * Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads.
+   * Current status. &#x60;DELETED&#x60; is returned only by the delete operation.
    * @return status
   **/
   @javax.annotation.Nullable

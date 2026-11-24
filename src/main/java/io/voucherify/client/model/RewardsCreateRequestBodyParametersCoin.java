@@ -51,7 +51,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Define the ratio by mapping the number of loyalty points in &#x60;points_ratio&#x60; to a predefined cash amount in &#x60;exchange_ratio&#x60;.
+ * Define the ratio by mapping the number of loyalty points (**legacy loyalty**) in &#x60;points_ratio&#x60; to a predefined cash amount in &#x60;exchange_ratio&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -103,7 +103,7 @@ public class RewardsCreateRequestBodyParametersCoin {
   }
 
    /**
-   * The number of loyalty points that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property.
+   * The number of loyalty points (**legacy loyalty**) that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property.
    * @return pointsRatio
   **/
   @javax.annotation.Nullable

@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Get earning rule
 
-Returns a single earning rule by its ID.
+Returns a single earning rule by its ID. A successful call records no activity.
 
 ### Example
 ```java

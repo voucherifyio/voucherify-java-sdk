@@ -608,7 +608,7 @@ public class CustomersApi {
      * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
-     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)
      * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
      * @param type Event name of the customer event. (optional)
      * @param _callback Callback for upload/download progress
@@ -717,7 +717,7 @@ public class CustomersApi {
      * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
-     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)
      * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
      * @param type Event name of the customer event. (optional)
      * @return CustomersActivityListResponseBody
@@ -738,7 +738,7 @@ public class CustomersApi {
      * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
-     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)
      * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
      * @param type Event name of the customer event. (optional)
      * @return ApiResponse&lt;CustomersActivityListResponseBody&gt;
@@ -760,7 +760,7 @@ public class CustomersApi {
      * @param startDate Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)
      * @param endDate Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)
      * @param campaignId Requests only events related to specific campaign identified by its ID. (optional)
-     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)
+     * @param campaignType Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)
      * @param category Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)
      * @param type Event name of the customer event. (optional)
      * @param _callback The callback to be executed when the API call finishes

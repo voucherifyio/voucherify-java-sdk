@@ -2,7 +2,7 @@
 
 # CampaignLoyaltyCardExpirationRules
 
-Defines the loyalty point expiration rule. This expiration rule applies when there are no `expiration_rules` defined for an earning rule.
+Defines the loyalty point expiration rule (**legacy loyalty**). This expiration rule applies when there are no `expiration_rules` defined for an earning rule.
 
 ## Properties
 

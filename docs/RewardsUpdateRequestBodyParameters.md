@@ -10,6 +10,7 @@
 |**campaign** | [**RewardsUpdateRequestBodyParametersCampaign**](RewardsUpdateRequestBodyParametersCampaign.md) |  |
 |**product** | [**RewardsUpdateRequestBodyParametersProduct**](RewardsUpdateRequestBodyParametersProduct.md) |  |
 |**coin** | [**RewardsUpdateRequestBodyParametersCoin**](RewardsUpdateRequestBodyParametersCoin.md) |  |
+|**loyaltyPoints** | [**RewardsUpdateRequestBodyParametersLoyaltyPoints**](RewardsUpdateRequestBodyParametersLoyaltyPoints.md) |  |
 
 
 

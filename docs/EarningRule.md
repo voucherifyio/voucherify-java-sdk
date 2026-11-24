@@ -2,6 +2,7 @@
 
 # EarningRule
 
+Earning rule for a **legacy loyalty** campaign. For Loyalty hub earning rules, see `/v2/loyalties/earning-rules`.
 
 ## Properties
 

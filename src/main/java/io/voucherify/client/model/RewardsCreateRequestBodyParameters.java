@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.voucherify.client.model.RewardsCreateRequestBodyParametersCampaign;
 import io.voucherify.client.model.RewardsCreateRequestBodyParametersCoin;
+import io.voucherify.client.model.RewardsCreateRequestBodyParametersLoyaltyPoints;
 import io.voucherify.client.model.RewardsCreateRequestBodyParametersProduct;
 import java.io.IOException;
 import java.util.Arrays;
@@ -72,6 +73,11 @@ public class RewardsCreateRequestBodyParameters {
   @SerializedName(SERIALIZED_NAME_COIN)
   private RewardsCreateRequestBodyParametersCoin coin;
     private boolean coinIsSet = false;
+
+  public static final String SERIALIZED_NAME_LOYALTY_POINTS = "loyalty_points";
+  @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS)
+  private RewardsCreateRequestBodyParametersLoyaltyPoints loyaltyPoints;
+    private boolean loyaltyPointsIsSet = false;
 
   public RewardsCreateRequestBodyParameters() {
   }
@@ -154,6 +160,32 @@ public class RewardsCreateRequestBodyParameters {
   }
 
 
+  public RewardsCreateRequestBodyParameters loyaltyPoints(RewardsCreateRequestBodyParametersLoyaltyPoints loyaltyPoints) {
+    
+    this.loyaltyPoints = loyaltyPoints;
+    this.loyaltyPointsIsSet = true;
+    return this;
+  }
+
+   /**
+   * Get loyaltyPoints
+   * @return loyaltyPoints
+  **/
+  @javax.annotation.Nullable
+  public RewardsCreateRequestBodyParametersLoyaltyPoints getLoyaltyPoints() {
+    return loyaltyPoints;
+  }
+
+
+  public void setLoyaltyPoints(RewardsCreateRequestBodyParametersLoyaltyPoints loyaltyPoints) {
+    this.loyaltyPoints = loyaltyPoints;
+    this.loyaltyPointsIsSet = true;
+  }
+  public boolean isLoyaltyPointsSet() {
+    return loyaltyPointsIsSet;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -166,7 +198,8 @@ public class RewardsCreateRequestBodyParameters {
     RewardsCreateRequestBodyParameters rewardsCreateRequestBodyParameters = (RewardsCreateRequestBodyParameters) o;
     return Objects.equals(this.campaign, rewardsCreateRequestBodyParameters.campaign) &&
         Objects.equals(this.product, rewardsCreateRequestBodyParameters.product) &&
-        Objects.equals(this.coin, rewardsCreateRequestBodyParameters.coin);
+        Objects.equals(this.coin, rewardsCreateRequestBodyParameters.coin) &&
+        Objects.equals(this.loyaltyPoints, rewardsCreateRequestBodyParameters.loyaltyPoints);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -175,7 +208,7 @@ public class RewardsCreateRequestBodyParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaign, product, coin);
+    return Objects.hash(campaign, product, coin, loyaltyPoints);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -192,6 +225,7 @@ public class RewardsCreateRequestBodyParameters {
     sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    coin: ").append(toIndentedString(coin)).append("\n");
+    sb.append("    loyaltyPoints: ").append(toIndentedString(loyaltyPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -217,6 +251,7 @@ public class RewardsCreateRequestBodyParameters {
     openapiFields.add("campaign");
     openapiFields.add("product");
     openapiFields.add("coin");
+    openapiFields.add("loyalty_points");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

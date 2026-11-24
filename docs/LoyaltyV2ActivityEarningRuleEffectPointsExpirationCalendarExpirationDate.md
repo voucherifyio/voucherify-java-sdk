@@ -8,8 +8,8 @@ A calendar expiration date. The maximum `day` depends on `month`: 29 for Februar
 
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
-|**day** | **Integer** | Day of month (1-31; validated against the month length). |
-|**month** | **Integer** | Month number (1-12). |
+|**day** | **Integer** | Day of month (1–31; validated against the month length). |
+|**month** | **Integer** | Month number (1–12). |
 
 
 

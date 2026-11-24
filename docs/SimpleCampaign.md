@@ -16,7 +16,7 @@ Simplified campaign data.
 |**voucher** | [**SimpleCampaignVoucher**](SimpleCampaignVoucher.md) |  |
 |**referralProgram** | [**ReferralProgram**](ReferralProgram.md) |  |
 |**autoJoin** | **Boolean** | Indicates whether customers will be able to auto-join the campaign if any earning rule is fulfilled. |
-|**joinOnce** | **Boolean** | If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them. |
+|**joinOnce** | **Boolean** | If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for **legacy loyalty** campaigns and it cannot be changed in them. |
 |**active** | **Boolean** | Indicates whether the campaign is active. |
 |**categoryId** | **String** | The unique category ID that this campaign belongs to. |
 |**category** | **String** | Unique category name. |
